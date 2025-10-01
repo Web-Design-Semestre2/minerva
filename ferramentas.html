@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ferramentas</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="js/pomodoro.js" defer></script>
+  <script src="js/checklist.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  
+  <header>
+    <div class="header-top">
+        <h1 class="site-title">Minerva</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="ferramentas.html">Ferramentas</a></li>
+                <li><a href="flashcards.html">Flashcards</a></li>
+                <li><a href="contato.html">Contatos</a></li>
+            </ul>
+            <button id="darkModeToggle">🌙</button>
+        </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Pomodoro ===== -->
+    <section>
+      <h1>Timer Pomodoro</h1>
+      <div id="pomodoro">
+        <div class="inputs-tempo">
+          <div class="tempo-box">
+            <label for="tempoEstudo">Tempo de estudo:</label>
+            <input type="text" id="tempoEstudo" value="25:00" pattern="\d{1,2}:\d{2}">
+          </div>
+          <div class="tempo-box">
+            <label for="tempoDescanso">Tempo de descanso:</label>
+            <input type="text" id="tempoDescanso" value="05:00" pattern="\d{1,2}:\d{2}">
+          </div>
+        </div>
+
+        <p id="tempo">25:00</p>
+        <div class="botoes-pomodoro">
+          <button id="iniciar">Iniciar</button>
+          <button id="pausar">Pausar</button>
+          <button id="resetar">Resetar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Checklist ===== -->
+    <section>
+      <h1>Checklist</h1>
+      <div id="checklist">
+        <div class="input-checklist">
+          <input type="text" id="novaTarefa" placeholder="Adicionar tarefa">
+          <button id="adicionar">Adicionar</button>
+        </div>
+        <ul id="lista"></ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Minerva. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>

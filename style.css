@@ -1,0 +1,322 @@
+/* ================= GLOBAL ================= */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1, h2 {
+    color: #222;
+    text-align: center;
+}
+
+p {
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    text-align: center;
+}
+
+/* ================= HEADER ================= */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+.header-top {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.site-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    color: #FFD700; 
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+header .menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+header .menu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header .menu li a:hover {
+    text-decoration: underline;
+}
+
+#darkModeToggle {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* ================= SECTIONS ================= */
+main section {
+    padding: 40px 20px;
+    background-color: white;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* ================= POMODORO ================= */
+#pomodoro {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.inputs-tempo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tempo-box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 200px;
+}
+
+.tempo-box label {
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: #333;
+    text-align: left;
+}
+
+.tempo-box input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    text-align: center;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.tempo-box input:focus {
+    border-color: #0077cc;
+    box-shadow: 0 0 5px rgba(0,119,204,0.5);
+    outline: none;
+}
+
+#tempo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.botoes-pomodoro button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: #0077cc;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.botoes-pomodoro button:hover {
+    background-color: #005fa3;
+    transform: scale(1.05);
+}
+
+/* Status do Pomodoro */
+#status {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #333; /* modo claro */
+}
+
+/* ================= CHECKLIST ================= */
+#checklist {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.input-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-checklist input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 200px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    text-align: left;
+}
+
+.input-checklist input:focus {
+    border-color: #0077cc;
+    box-shadow: 0 0 5px rgba(0,119,204,0.5);
+    outline: none;
+}
+
+.input-checklist button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: #0077cc;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.input-checklist button:hover {
+    background-color: #005fa3;
+    transform: scale(1.05);
+}
+
+#lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#lista li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+    padding: 8px 12px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+}
+
+#lista li input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+#lista li span {
+    color: #333; /* cor padrão das tarefas */
+}
+
+#lista li span.feito {
+    color: gray;
+    text-decoration: line-through;
+}
+
+/* ================= DARK MODE ================= */
+body.dark-mode {
+    background-color: #222;
+    color: #f9f9f9;
+}
+
+body.dark-mode header { background-color: #111; }
+body.dark-mode footer { background-color: #111; }
+
+body.dark-mode .menu li a { color: #f9f9f9; }
+body.dark-mode main section { background-color: #333; color: #f9f9f9; }
+body.dark-mode h1, body.dark-mode h2 { color: #FFD700; }
+
+body.dark-mode section p, body.dark-mode section li { color: #f9f9f9; }
+
+/* Pomodoro dark mode */
+body.dark-mode #pomodoro {
+    background-color: #1c1c1c;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .botoes-pomodoro button {
+    background-color: #FFD700;
+    color: #1c1c1c;
+}
+
+body.dark-mode .botoes-pomodoro button:hover {
+    background-color: #e6c200;
+}
+
+/* Status do Pomodoro dark mode */
+body.dark-mode #status {
+    color: #FFD700;
+}
+
+/* Checklist dark mode */
+body.dark-mode #checklist {
+    background-color: #1c1c1c;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .input-checklist input {
+    background-color: #555;
+    color: #f9f9f9;
+    border: 1px solid #777;
+}
+
+body.dark-mode #lista li {
+    background-color: #333;
+}
+
+body.dark-mode #lista li span {
+    color: #f1f1f1; /* tarefas visíveis no dark mode */
+}
+
+body.dark-mode #lista li span.feito {
+    color: #bbb;
+}
+
+body.dark-mode .input-checklist button {
+    background-color: #FFD700;
+    color: #1c1c1c;
+}
+
+body.dark-mode .input-checklist button:hover {
+    background-color: #e6c200;
+}
+
+body.dark-mode .tempo-box label,
+body.dark-mode .input-checklist label {
+    color: #f9f9f9;
+}
+
+body.dark-mode #tempo {
+    color: #FFD700;
+}
