@@ -473,3 +473,11 @@ body.dark-mode #tempo,
 body.dark-mode #status {
     color: #FFD700;
 }
+
+body.dark-mode .contato-container,
+body.dark-mode .contato-container label,
+body.dark-mode .contato-container p,
+body.dark-mode .contato-container li {
+    background-color: #333; 
+    color: #f0f0f0;        
+}
