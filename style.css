@@ -1,16 +1,26 @@
 /* ================= GLOBAL ================= */
-body {
-    font-family: Arial, sans-serif;
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #f9f9f9;
     color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    min-height: 100vh; /* garante que o main cubra toda a tela */
+    background-color: #f9f9f9;
+    padding: 20px 0;
 }
 
 h1, h2 {
-    color: #222;
     text-align: center;
+    color: #222;
 }
 
 p {
@@ -77,11 +87,16 @@ header .menu li a:hover {
 /* ================= SECTIONS ================= */
 main section {
     padding: 40px 20px;
-    background-color: white;
+    background-color: #fff; /* light mode */
     margin: 20px auto;
     max-width: 900px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    color: #333;
+}
+
+main section:last-child {
+    margin-bottom: 80px; /* espaço antes do footer */
 }
 
 /* ================= BUTTONS ================= */
@@ -89,29 +104,28 @@ button {
     cursor: pointer;
 }
 
-/* ================= CHECKLIST ================= */
-#lista {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#lista li {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 4px 0;
-}
-
-.feito {
-    text-decoration: line-through;
-    color: gray;
-}
-
 /* ================= POMODORO ================= */
 #pomodoro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     margin-top: 20px;
+}
+
+#status {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #f1c40f;
+}
+
+#tempo {
+    font-size: 4rem; /* maior */
+    font-weight: bold;
+    margin: 15px 0;
+    color: #222; /* light mode */
 }
 
 #pomodoro button {
@@ -147,6 +161,112 @@ button {
     border-radius: 8px;
     border: 1px solid #ccc;
     text-align: center;
+    background-color: #fff;
+    color: #333;
+}
+
+/* ================= CHECKLIST ================= */
+#checklist {
+    text-align: center;
+}
+
+.input-checklist {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-checklist input {
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 200px;
+    background-color: #fff;
+    color: #333;
+}
+
+.input-checklist button {
+    padding: 6px 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: #0077cc;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.input-checklist button:hover {
+    background-color: #005fa3;
+    transform: scale(1.05);
+}
+
+#lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#lista li {
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    margin: 6px 0;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    transition: background 0.2s, transform 0.2s;
+    color: #333;
+}
+
+#lista li:hover {
+    background: #f7faff;
+    transform: translateX(3px);
+}
+
+#lista li input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+#lista li span {
+    font-size: 1rem;
+}
+
+.feito {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* ================= FERRAMENTAS ================= */
+.ferramentas-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.ferramenta {
+    background-color: #fff;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    color: #333;
+}
+
+.ferramenta h2 {
+    margin-top: 0;
+    color: #0077cc;
+    text-align: center;
+}
+
+.ferramenta p {
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
 }
 
 /* ================= CONTATO ================= */
@@ -154,9 +274,10 @@ button {
     max-width: 900px;
     margin: 20px auto;
     padding: 30px 20px;
-    background-color: white;
+    background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    color: #333;
 }
 
 .contato-form {
@@ -177,8 +298,9 @@ button {
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
     box-sizing: border-box;
+    background-color: #fff;
+    color: #333;
 }
 
 .contato-form input:focus,
@@ -190,13 +312,12 @@ button {
 
 .contato-form button {
     width: 150px;
-    align-self: flex-start;
     padding: 10px 20px;
-    font-size: 1rem;
     border: none;
     border-radius: 8px;
     background-color: #0077cc;
     color: white;
+    font-size: 1rem;
     transition: background-color 0.3s, transform 0.2s;
 }
 
@@ -226,20 +347,15 @@ button {
     max-width: 900px;
     margin: 20px auto;
     padding: 30px 20px;
-    background-color: white;
+    background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.blog-container p {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #555;
+    color: #333;
 }
 
 .blog-posts {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 25px;
 }
 
@@ -247,8 +363,13 @@ button {
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
+    background-color: #fff;
     transition: transform 0.2s, box-shadow 0.3s;
-    background-color: #f9f9f9;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 .post h2 {
@@ -258,7 +379,6 @@ button {
 
 .post p {
     margin: 10px 0;
-    color: #333;
 }
 
 .post a {
@@ -280,22 +400,28 @@ footer {
     text-align: center;
 }
 
-#topo {
-    display: block;
-    margin: 10px auto;
-    padding: 5px 10px;
-}
-
 /* ================= RESPONSIVIDADE ================= */
 @media (max-width: 600px) {
     header nav {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     header .menu {
         flex-direction: column;
         gap: 10px;
+    }
+}
+
+@media (min-width: 700px) {
+    .blog-posts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1100px) {
+    .blog-posts {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -305,7 +431,12 @@ body.dark-mode {
     color: #f9f9f9;
 }
 
-body.dark-mode header {
+body.dark-mode main {
+    background-color: #222;
+}
+
+body.dark-mode header,
+body.dark-mode .header-top {
     background-color: #111;
 }
 
@@ -317,86 +448,28 @@ body.dark-mode .menu li a {
     color: #f9f9f9;
 }
 
-body.dark-mode main section {
+body.dark-mode main section,
+body.dark-mode .contato-container,
+body.dark-mode .blog-container,
+body.dark-mode .post,
+body.dark-mode .ferramentas-container,
+body.dark-mode .ferramenta {
     background-color: #333;
     color: #f9f9f9;
 }
 
-body.dark-mode h1, 
+body.dark-mode h1,
 body.dark-mode h2 {
     color: #FFD700;
 }
 
 body.dark-mode section p,
-body.dark-mode section li {
-    color: #f9f9f9;
-}
-
-body.dark-mode #pomodoro p,
-body.dark-mode #status {
-    color: #FFD700;
-}
-
-body.dark-mode .contato-form label,
-body.dark-mode .contato-extra li {
-    color: #f9f9f9;
-}
-
-body.dark-mode .contato-form input,
-body.dark-mode .contato-form textarea {
-    background-color: #555;
-    color: #f9f9f9;
-    border: 1px solid #777;
-}
-
-body.dark-mode .contato-form button {
-    background-color: #FFD700;
-    color: #1c1c1c;
-}
-
-body.dark-mode .contato-form button:hover {
-    background-color: #e6c200;
-}
-
-body.dark-mode #lista li span {
-    color: #f9f9f9;
-}
-
-body.dark-mode .blog-container p {
+body.dark-mode section li,
+body.dark-mode .post p {
     color: #f0f0f0;
 }
 
-body.dark-mode .post {
-    background-color: #444;
-    border: 1px solid #666;
-}
-
-body.dark-mode .post h2,
-body.dark-mode .post a {
+body.dark-mode #tempo,
+body.dark-mode #status {
     color: #FFD700;
 }
-
-body.dark-mode .post p {
-    color: #f9f9f9;
-}
-/* ================= FOOTER ================= */
-html, body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex: 1;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
