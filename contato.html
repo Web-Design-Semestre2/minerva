@@ -3,63 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contato - Minerva</title>
+  <title>Contato</title>
   <link rel="stylesheet" href="style.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
   
-    <header>
+  <header>
     <div class="header-top">
-        <h1 class="site-title">Minerva</h1>
-        <nav>
-            <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="ferramentas.html">Ferramentas</a></li>
-                <li><a href="flashcards.html">Flashcards</a></li>
-                <li><a href="contato.html">Contatos</a></li>
-            </ul>
-            <button id="darkModeToggle">🌙</button>
-        </nav>
+      <h1 class="site-title">Minerva</h1>
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="ferramentas.html">Ferramentas</a></li>
+          <li><a href="flashcards.html">Flashcards</a></li>
+          <li><a href="contato.html">Contatos</a></li>
+        </ul>
+        <button id="darkModeToggle">🌙</button>
+      </nav>
     </div>
-</header>
+  </header>
 
-  <main class="container">
-    <h1>Entre em Contato</h1>
-    <p>
-      Gostou do site, encontrou algum problema ou tem uma sugestão?  
-      Use o formulário abaixo para enviar sua mensagem.  
-      Sua opinião é muito importante para continuarmos melhorando o Minerva!
-    </p>
+  <main>
+    <section class="contato-container">
+      <h1>Contato</h1>
+      <form class="contato-form">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Seu nome">
 
-    <form class="contato-form">
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Seu email">
 
-      <label for="email">E-mail:</label>
-      <input type="email" id="email" name="email" required>
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" rows="6" placeholder="Escreva sua mensagem"></textarea>
 
-      <label for="mensagem">Mensagem:</label>
-      <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
 
-      <button type="submit">Enviar</button>
-    </form>
-
-    <section class="contato-extra">
-      <h2>Outros meios de contato</h2>
-      <p>Email direto: <a href="mailto:contato@minerva.com">contato@minerva.com</a></p>
-      <p>Siga-nos nas redes sociais:</p>
-      <ul>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">LinkedIn</a></li>
-      </ul>
+      <div class="contato-extra">
+        <h2>Outras formas de contato</h2>
+        <ul>
+          <li>Email: exemplo@minerva.com</li>
+          <li>Telefone: (00) 1234-5678</li>
+        </ul>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Minerva - Todos os direitos reservados.</p>
-  </footer>
 </body>
 </html>
