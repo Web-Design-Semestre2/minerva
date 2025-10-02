@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minerva - Flashcards</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="JS/flashcard.js" defer></script>
+</head>
+<body>
+<header>
+  <div class="header-top">
+    <h1 class="site-title">Minerva</h1>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-container" id="navMenu">
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="ferramentas.html">Ferramentas</a></li>
+        <li><a href="flashcards.html">Flashcards</a></li>
+        <li><a href="contato.html">Contatos</a></li>
+      </ul>
+      <button id="darkModeToggle">🌙</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="flashcard-container">
+    <h2>Crie seus Flashcards</h2>
+
+    <div id="creationArea">
+      <div class="flashcard-form">
+        <input type="text" id="frontInput" placeholder="Frente do flashcard">
+        <input type="text" id="backInput" placeholder="Verso do flashcard">
+        <button id="addFlashcard">Adicionar</button>
+      </div>
+
+      <h3>Seus Flashcards</h3>
+      <ul id="flashcardList"></ul>
+    </div>
+
+    <div class="estudo-container">
+      <h3>Modo Estudo</h3>
+
+    <div id="studyArea" class="study-card">
+        <div class="card-inner" id="cardInner">
+            <div class="card-face card-front" id="cardFront">Clique em "Iniciar Estudo"</div>
+            <div class="card-face card-back" id="cardBack"></div>
+        </div>
+    </div>
+
+
+
+      <p id="cardSide">-</p>
+      <p id="progress">Progresso: 0/0 — Restantes: 0</p>
+
+      <div class="study-buttons" aria-hidden="false">
+        <button id="startStudy">Iniciar Estudo</button>
+        <button id="flipCard" disabled>Virar</button>
+        <button id="nextCard" disabled>Próximo</button>
+        <button id="correctCard" disabled>Acerto ✅</button>
+        <button id="wrongCard" disabled>Erro ❌</button>
+      </div>
+
+      <div class="study-secondary">
+        <button id="backToCreate" class="back-button" disabled>Criar / Voltar</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Minerva. Todos os direitos reservados.</p>
+  <a id="topo" href="#">Voltar ao topo</a>
+</footer>
+</body>
+</html>
