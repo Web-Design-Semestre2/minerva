@@ -9,7 +9,8 @@ function renderPost() {
   const container = document.getElementById("blogPostContent");
 
   if (!post) {
-    container.innerHTML = "<h2>Post não encontrado</h2><a href='blog.html'>← Voltar ao Blog</a>";
+    container.innerHTML = `<h2>Post não encontrado</h2>
+      <a href='blog.html' class="back-link">← Voltar ao Blog</a>`;
     document.title = "Minerva - Post não encontrado";
     return;
   }
@@ -19,7 +20,7 @@ function renderPost() {
     <h1>${post.title}</h1>
     <p><em>${post.date}</em></p>
     ${post.content}
-    <p><a href="blog.html">← Voltar ao Blog</a></p>
+    <a href="blog.html" class="back-link">← Voltar ao Blog</a>
   `;
 }
 

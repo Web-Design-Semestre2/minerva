@@ -1,4 +1,4 @@
-/* ============= GLOBAL ============= */
+/* ================= GLOBAL ================= */
 * {
     margin: 0;
     padding: 0;
@@ -48,13 +48,7 @@ p {
     padding: 0 15px;
 }
 
-button {
-    cursor: pointer;
-    min-height: 44px;
-    font-size: clamp(0.9rem, 2vw, 1rem);
-}
-
-/* ============= HEADER ============= */
+/* ================= HEADER ================= */
 header {
     background-color: #333;
     color: white;
@@ -127,7 +121,7 @@ header .menu li a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* ============= MAIN SECTIONS ============= */
+/* ================= SECTIONS ================= */
 main section {
     padding: clamp(20px, 5vw, 40px);
     background-color: #fff;
@@ -143,7 +137,14 @@ main section:last-child {
     margin-bottom: 40px;
 }
 
-/* ============= POMODORO ============= */
+/* ================= BUTTONS ================= */
+button {
+    cursor: pointer;
+    min-height: 44px;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* ================= POMODORO ================= */
 #pomodoro {
     display: flex;
     flex-direction: column;
@@ -225,7 +226,7 @@ main section:last-child {
     font-size: 1rem;
 }
 
-/* ============= CHECKLIST ============= */
+/* ================= CHECKLIST ================= */
 #checklist {
     text-align: center;
     width: 100%;
@@ -310,7 +311,7 @@ main section:last-child {
     color: gray;
 }
 
-/* ============= FERRAMENTAS ============= */
+/* ================= FERRAMENTAS ================= */
 .ferramentas-container {
     max-width: 900px;
     margin: 20px auto;
@@ -340,185 +341,369 @@ main section:last-child {
     margin-bottom: 20px;
 }
 
-/* ============= FLASHCARDS ============= */
+/* ================= FLASHCARDS ================= */
 .flashcard-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: clamp(15px, 4vw, 30px);
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.flashcard-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.flashcard-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+.flashcard-form button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.flashcard-form button:hover {
+  background-color: #005fa3;
+  transform: scale(1.05);
+}
+
+#flashcardList {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+#flashcardList li {
+  background: #f9f9f9;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.study-card {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 520px;
+  min-height: 160px;
+  background: #0077cc;
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 600;
+  padding: 12px;
+  box-sizing: border-box;
+  text-align: center;
+  perspective: 1000px;
+  height: 220px;
+  transition: transform 0.5s;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-front {
+  background: #0077cc;
+  color: white;
+}
+
+.card-back {
+  background: #444;
+  color: #FFD700;
+  transform: rotateY(180deg);
+  border: 1px solid #666;
+}
+
+.study-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+#cardSide {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #0077cc;
+}
+
+#progress {
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.study-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.study-buttons button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.study-buttons button:hover {
+  background-color: #005fa3;
+  transform: scale(1.05);
+}
+
+.study-secondary {
+  margin-top: 22px;             
+  display: flex;
+  justify-content: center;
+}
+
+.back-button {
+  background-color: #e9e9e9;
+  color: #222;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.12s;
+}
+
+.back-button:hover {
+  background-color: #d6d6d6;
+  transform: translateY(-2px);
+}
+
+.study-card {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 420px;
+  height: 220px;
+}
+
+/* ====== Flip 3D ====== */
+.study-card {
+  perspective: 1000px;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 420px;
+  height: 220px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-front {
+  background: #0077cc;
+  color: white;
+}
+
+.card-back {
+  background: #444;
+  color: #FFD700;
+  transform: rotateY(180deg);
+  border: 1px solid #666;
+}
+
+.study-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+#cardSide {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #0077cc;
+}
+
+#progress {
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #444;
+}
+
+/* ================= BLOG ================= */
+.blog-container {
     max-width: 900px;
     margin: 20px auto;
     padding: clamp(15px, 4vw, 30px);
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    text-align: center;
+    color: #333;
 }
 
-.flashcard-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 20px;
+.blog-posts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
 }
 
-.flashcard-form input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    min-width: 200px;
-}
-
-.flashcard-form button {
-    background-color: #0077cc;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.flashcard-form button:hover {
-    background-color: #005fa3;
-    transform: scale(1.05);
-}
-
-#flashcardList {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-#flashcardList li {
-    background: #f9f9f9;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 8px;
+.post {
+    padding: clamp(15px, 3vw, 20px);
     border: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: transform 0.2s, box-shadow 0.3s;
 }
 
-.study-card {
-    margin: 20px auto;
-    width: 100%;
-    max-width: 520px;
-    min-height: 160px;
-    background: #0077cc;
-    color: white;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: clamp(1.1rem, 3vw, 1.4rem);
-    font-weight: 600;
-    padding: 12px;
-    box-sizing: border-box;
-    text-align: center;
-    perspective: 1000px;
-    height: 220px;
-    transition: transform 0.5s;
+.post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-}
-
-.card-face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    box-sizing: border-box;
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
-    font-weight: bold;
-    text-align: center;
-}
-
-.card-front {
-    background: #0077cc;
-    color: white;
-}
-
-.card-back {
-    background: #444;
-    color: #FFD700;
-    transform: rotateY(180deg);
-    border: 1px solid #666;
-}
-
-.study-card.flipped .card-inner {
-    transform: rotateY(180deg);
-}
-
-#cardSide {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-top: 10px;
+.post h2 {
+    margin-top: 0;
     color: #0077cc;
 }
 
-#progress {
-    margin-top: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #444;
+.post p {
+    margin: 10px 0;
+    text-align: left;
 }
 
-.study-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 10px;
+.post a {
+    color: #0077cc;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
-.study-buttons button {
-    background-color: #0077cc;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+.post a:hover {
+    color: #005fa3;
 }
 
-.study-buttons button:hover {
-    background-color: #005fa3;
-    transform: scale(1.05);
+/* ----------- BLOG POST PAGE STYLES ----------- */
+
+#blogPostContent h1, 
+#blogPostContent h2,
+#blogPostContent h3 {
+    text-align: center;
+    color: #005fa3;
+    margin-top: 28px;
+    margin-bottom: 10px;
 }
 
-.study-secondary {
-    margin-top: 22px;
-    display: flex;
-    justify-content: center;
+#blogPostContent img {
+    display: block;
+    margin: 32px auto 24px auto;
+    max-width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.11);
 }
 
-.back-button {
-    background-color: #e9e9e9;
+#blogPostContent p, #blogPostContent ul, #blogPostContent ol {
+    font-size: 1.15rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 18px;
+    text-align: left;
+    line-height: 1.7;
+}
+
+#blogPostContent ul, #blogPostContent ol {
+    padding-left: 2.2em;
+}
+
+#blogPostContent strong {
     color: #222;
+}
+
+#blogPostContent em {
+    color: #555;
+}
+
+.back-link {
+    display: inline-block;
+    margin: 24px 0 0 0;
+    padding: 10px 20px;
+    background: #0077cc;
+    color: #fff !important;
     border: none;
-    padding: 10px 18px;
     border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.12s;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.25s, transform 0.16s;
+}
+.back-link:hover {
+    background: #005fa3;
+    color: #fff;
+    transform: translateY(-2px) scale(1.04);
+    text-decoration: none;
 }
 
-.back-button:hover {
-    background-color: #d6d6d6;
-    transform: translateY(-2px);
-}
-
-/* ============= CONTATO ============= */
+/* ================= CONTATO ================= */
 .contato-container {
     max-width: 900px;
     margin: 20px auto;
@@ -595,61 +780,9 @@ main section:last-child {
     font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
-/* ============= BLOG ============= */
-.blog-container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: clamp(15px, 4vw, 30px);
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    color: #333;
-}
-
-.blog-posts {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.post {
-    padding: clamp(15px, 3vw, 20px);
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #fff;
-    transition: transform 0.2s, box-shadow 0.3s;
-}
-
-.post:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-
-.post h2 {
-    margin-top: 0;
-    color: #0077cc;
-}
-
-.post p {
-    margin: 10px 0;
-    text-align: left;
-}
-
-.post a {
-    color: #0077cc;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s;
-    font-size: clamp(0.9rem, 2vw, 1rem);
-}
-
-.post a:hover {
-    color: #005fa3;
-}
-
-/* ============= FOOTER ============= */
+/* ================= FOOTER ================= */
 footer {
-    flex-shrink: 0;
+    flex-shrink: 0; /* não encolhe */
     background-color: #333;
     color: white;
     padding: 20px 15px;
@@ -678,7 +811,7 @@ footer p {
     background-color: #005fa3;
 }
 
-/* ============= HOME PAGE SPECIFIC ============= */
+/* ================= HOME PAGE SPECIFIC ================= */
 #home, #about, #services {
     text-align: center;
 }
@@ -695,19 +828,23 @@ footer p {
     font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
-/* ============= RESPONSIVIDADE ============= */
+/* ================= RESPONSIVIDADE ================= */
+
 /* Mobile pequeno (até 400px) */
 @media (max-width: 400px) {
     .header-top {
         gap: 10px;
     }
+    
     header .menu {
         gap: 8px;
     }
+    
     header .menu li a {
         padding: 6px 10px;
         font-size: 0.85rem;
     }
+    
     main section {
         padding: 15px;
         width: calc(100% - 10px);
@@ -725,19 +862,23 @@ footer p {
         text-align: center;
         gap: 5px;
     }
+    
     header .menu li {
         width: 100%;
     }
-
+    
     .inputs-tempo {
         flex-direction: column;
     }
+    
     .tempo-box {
         width: 100%;
     }
+    
     .input-checklist {
         flex-direction: column;
     }
+    
     .input-checklist input {
         max-width: 100%;
     }
@@ -748,6 +889,7 @@ footer p {
         flex-direction: row;
         justify-content: space-between;
     }
+    
     header nav {
         flex-direction: row;
     }
@@ -757,6 +899,7 @@ footer p {
     .blog-posts {
         grid-template-columns: repeat(2, 1fr);
     }
+    
     main {
         padding: 20px;
     }
@@ -766,6 +909,7 @@ footer p {
     .blog-posts {
         grid-template-columns: repeat(3, 1fr);
     }
+    
     .header-top {
         flex-direction: row;
         justify-content: space-between;
@@ -781,21 +925,25 @@ footer p {
     }
 }
 
-/* ============= DARK MODE ============= */
+/* ================= DARK MODE ================= */
 body.dark-mode {
     background-color: #222;
     color: #f9f9f9;
 }
+
 body.dark-mode main {
     background-color: #222;
 }
+
 body.dark-mode header,
 body.dark-mode .header-top {
     background-color: #111;
 }
+
 body.dark-mode footer {
     background-color: #111;
 }
+
 body.dark-mode .menu li a {
     color: #f9f9f9;
 }
@@ -855,16 +1003,30 @@ body.dark-mode #darkModeToggle:hover {
     background-color: rgba(255, 215, 0, 0.3);
 }
 
-/* Flashcards Dark Mode */
-body.dark-mode .flashcard-container { background-color: #2b2b2b; color: #f5f5f5; }
-body.dark-mode .flashcard-form input { background-color: #3a3a3a; border: 1px solid #555; color: #f5f5f5; }
-body.dark-mode #flashcardList li { background-color: #3a3a3a; border-color: #555; color: #f5f5f5; }
-body.dark-mode .study-card { background: #333; color: #FFD700; border: 1px solid #444; }
-body.dark-mode .back-button { background-color: #444; color: #f5f5f5; }
-
-body.dark-mode #progress {
-    color: #f5f5f5;
-}
-body.dark-mode #cardSide {
+body.dark-mode #blogPostContent h1,
+body.dark-mode #blogPostContent h2,
+body.dark-mode #blogPostContent h3 {
     color: #FFD700;
+}
+body.dark-mode #blogPostContent p,
+body.dark-mode #blogPostContent ul,
+body.dark-mode #blogPostContent ol {
+    color: #f0f0f0;
+}
+body.dark-mode .back-link {
+    background: #FFD700;
+    color: #222 !important;
+}
+body.dark-mode .back-link:hover {
+    background: #ffed85;
+    color: #222 !important;
+}
+
+body.dark-mode #flashcardList li {
+  background-color: #3a3a3a;
+  border-color: #555;
+  color: #fff !important;
+}
+body.dark-mode #flashcardList li span {
+  color: #fff !important;
 }
