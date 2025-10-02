@@ -8,11 +8,18 @@
     <script src="js/main.js" defer></script>
 </head>
 <body>
-
 <header>
     <div class="header-top">
         <h1 class="site-title">Minerva</h1>
-        <nav>
+        
+        <!-- Botão Hambúrguer (só aparece em mobile) -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <nav class="nav-container" id="navMenu">
             <ul class="menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog.html">Blog</a></li>
@@ -26,6 +33,7 @@
 </header>
 
 <main>
+
     <section id="home">
         <h2>Bem-vindo ao Minerva!</h2>
         <p>O seu assistente de estudos inteligente, pronto para turbinar seu aprendizado e levar suas habilidades a um novo nível 🚀</p>
@@ -49,10 +57,10 @@
     </section>
 </main>
 
-<footer>
-    <button id="topo">Voltar ao topo</button>
-    <p>&copy; 2025 Minerva. Estudar nunca foi tão fácil: inteligência para potencializar suas habilidades.</p>
-</footer>
+ <footer>
+    <p>© 2025 Minerva. Todos os direitos reservados.</p>
+    <a id="topo" href="#">Voltar ao topo</a>
+  </footer>
 
 </body>
 </html>
