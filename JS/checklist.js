@@ -2,7 +2,7 @@ const input = document.getElementById("novaTarefa");
 const btnAdd = document.getElementById("adicionar");
 const lista = document.getElementById("lista");
 
-btnAdd.addEventListener("click", () => {
+function adicionarTarefa() {
   if (input.value.trim() !== "") {
     const li = document.createElement("li");
 
@@ -20,5 +20,16 @@ btnAdd.addEventListener("click", () => {
     li.appendChild(span);
     lista.appendChild(li);
     input.value = "";
+    
+    input.focus();
+  }
+}
+
+btnAdd.addEventListener("click", adicionarTarefa);
+
+input.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault(); 
+    adicionarTarefa();
   }
 });
