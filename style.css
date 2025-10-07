@@ -183,6 +183,171 @@ header .menu li a:hover {
     color: var(--color-title);
 }
 
+/* ================= MENU HAMBÚRGUER (adicionar ao style.css) ================= */
+
+/* Botão Hambúrguer (escondido por padrão) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    position: relative;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-bg);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Animação do X quando menu está aberto */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Container da navegação */
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Overlay escuro quando menu aberto (mobile) */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* ================= RESPONSIVIDADE DO MENU ================= */
+
+/* Mobile (768px ou menos) */
+@media (max-width: 768px) {
+    /* Mostra o botão hambúrguer */
+    .menu-toggle {
+        display: flex;
+    }
+    
+    /* Header ajustado para mobile */
+    .header-top {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+    
+    /* Menu lateral que desliza da direita */
+    .nav-container {
+        position: fixed;
+        top: 0;
+        right: -100%; /* escondido fora da tela */
+        width: 75%;
+        max-width: 320px;
+        height: 100vh;
+        background-color: var(--color-title);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        padding: 80px 0 20px 0;
+        gap: 0;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 15px rgba(0,0,0,0.3);
+        overflow-y: auto;
+        z-index: 1000;
+    }
+    
+    /* Menu visível quando ativo */
+    .nav-container.active {
+        right: 0;
+    }
+    
+    /* Menu em coluna */
+    header .menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        margin-bottom: 20px;
+    }
+    
+    header .menu li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Links maiores e mais fáceis de clicar */
+    header .menu li a {
+        padding: 18px 25px;
+        width: 100%;
+        text-align: left;
+        font-size: 1.1rem;
+        display: block;
+        border-radius: 0;
+    }
+    
+    header .menu li a:hover {
+        background-color: var(--color-accent);
+    }
+    
+    /* Botão dark mode no menu mobile */
+    #darkModeToggle {
+        width: calc(100% - 50px);
+        margin: 0 25px;
+        padding: 15px;
+        font-size: 1.5rem;
+    }
+}
+
+/* Tablet pequeno (600px ou menos) */
+@media (max-width: 600px) {
+    .nav-container {
+        width: 85%;
+        max-width: 280px;
+    }
+}
+
+/* Mobile muito pequeno (400px ou menos) */
+@media (max-width: 400px) {
+    .nav-container {
+        width: 90%;
+    }
+    
+    .site-title {
+        font-size: 1.4rem;
+    }
+    
+    .menu-toggle {
+        width: 26px;
+        height: 20px;
+    }
+}
+
 /* ================= SECTIONS ================= */
 main section {
     padding: clamp(20px, 5vw, 40px);
