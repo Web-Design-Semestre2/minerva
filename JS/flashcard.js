@@ -208,34 +208,82 @@ function withFlipDelay(callback) {
 correctBtn.addEventListener("click", () => {
   if (!inStudy || studyQueue.length === 0) return;
 
-  withFlipDelay(() => {
-    correctCount++;
-    studyQueue.splice(currentIndex, 1);
+  const studyArea = document.getElementById("studyArea");
+  if (!studyArea.classList.contains("flipped")) {
+    studyArea.classList.add("flipped");
+    showingFront = false;
+    cardSide.textContent = "Verso";
+    disableButtons(true);
 
-    if (studyQueue.length === 0) {
-      endStudy(true);
-      return;
-    }
+    setTimeout(() => {
+      studyArea.classList.remove("flipped");
+      
+      correctCount++;
+      studyQueue.splice(currentIndex, 1);
 
-    if (currentIndex >= studyQueue.length) currentIndex = 0;
-    showingFront = true;
-    showCard();
-    updateProgress();
-  });
+      if (studyQueue.length === 0) {
+        endStudy(true);
+        disableButtons(false);
+        return;
+      }
+
+      if (currentIndex >= studyQueue.length) currentIndex = 0;
+      showingFront = true;
+      showCard();
+      updateProgress();
+      disableButtons(false);
+    }, 1500);
+  } else {
+    withFlipDelay(() => {
+      correctCount++;
+      studyQueue.splice(currentIndex, 1);
+
+      if (studyQueue.length === 0) {
+        endStudy(true);
+        return;
+      }
+
+      if (currentIndex >= studyQueue.length) currentIndex = 0;
+      showingFront = true;
+      showCard();
+      updateProgress();
+    });
+  }
 });
 
 wrongBtn.addEventListener("click", () => {
   if (!inStudy || studyQueue.length === 0) return;
 
-  withFlipDelay(() => {
-    const card = studyQueue.splice(currentIndex, 1)[0];
-    studyQueue.push(card);
+  const studyArea = document.getElementById("studyArea");
+  if (!studyArea.classList.contains("flipped")) {
+    studyArea.classList.add("flipped");
+    showingFront = false;
+    cardSide.textContent = "Verso";
+    disableButtons(true);
 
-    if (currentIndex >= studyQueue.length) currentIndex = 0;
-    showingFront = true;
-    showCard();
-    updateProgress();
-  });
+    setTimeout(() => {
+      studyArea.classList.remove("flipped");
+      
+      const card = studyQueue.splice(currentIndex, 1)[0];
+      studyQueue.push(card);
+
+      if (currentIndex >= studyQueue.length) currentIndex = 0;
+      showingFront = true;
+      showCard();
+      updateProgress();
+      disableButtons(false);
+    }, 1500);
+  } else {
+    withFlipDelay(() => {
+      const card = studyQueue.splice(currentIndex, 1)[0];
+      studyQueue.push(card);
+
+      if (currentIndex >= studyQueue.length) currentIndex = 0;
+      showingFront = true;
+      showCard();
+      updateProgress();
+    });
+  }
 });
 
 backToCreate.addEventListener("click", () => {
@@ -256,7 +304,7 @@ function endStudy(finished = true, message = null) {
   correctBtn.disabled = true;
   wrongBtn.disabled = true;
   backToCreate.disabled = true;
-  startBtn.disabled = false; // reabilita start
+  startBtn.disabled = false;
 
   const frontEl = document.getElementById("cardFront");
   const backEl = document.getElementById("cardBack");
