@@ -2,9 +2,9 @@ const blogPosts = [
 
   {
     id: "1",
-    slug: "7-metodos-de-estudo-que-funcionam",
-    title: "7 Métodos de Estudo que Realmente Funcionam",
-    date: "2025-10-01",
+    slug: "Sete-metodos-de-estudo-que-funcionam",
+    title: "Sete Métodos de Estudo que Realmente Funcionam",
+    date: "01/10/2025",
     summary: "Descubra técnicas comprovadas pela neurociência que podem revolucionar sua rotina de estudos.",
     content: `
       <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80" alt="Pessoa estudando com livros e notebook">
@@ -33,11 +33,13 @@ const blogPosts = [
 
       <h3>5. Método SQ3R</h3>
       <p>O SQ3R é uma técnica clássica para leitura eficiente, composta por cinco etapas:</p>
-      <p>1. Survey (Explorar) – faça uma leitura geral do conteúdo;</p>
-      <p>2. Question (Perguntar) – transforme títulos e subtítulos em perguntas;</p>
-      <p>3. Read (Ler) – leia buscando respostas;</p>
-      <p>4. Recite (Recitar) – explique o que aprendeu em voz alta;</p>
-      <p>5. Review (Revisar) – retorne periodicamente ao conteúdo.</p>
+      <ol>
+      <li>Survey (Explorar) – faça uma leitura geral do conteúdo;</li>
+      <li>Question (Perguntar) – transforme títulos e subtítulos em perguntas;</li>
+      <li>Read (Ler) – leia buscando respostas;</li>
+      <li>Recite (Recitar) – explique o que aprendeu em voz alta;</li>
+      <li>Review (Revisar) – retorne periodicamente ao conteúdo.</li>
+      </ol>
 
       <p>Esse método melhora a compreensão de textos longos e ajuda na retenção de informações importantes.</p>
 
@@ -59,7 +61,7 @@ const blogPosts = [
     id: "2",
     slug: "como-organizar-plano-de-estudos",
     title: "Como Organizar um Plano de Estudos Personalizado",
-    date: "2025-09-25",
+    date: "25/09/2025",
     summary: "Aprenda a criar um plano de estudos eficiente e equilibrado, adaptado ao seu ritmo e objetivos.",
     content: `
       <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80" alt="Planejamento de estudos">
@@ -88,9 +90,11 @@ const blogPosts = [
       <h3>4. Use ferramentas de apoio</h3>
       <p>Ferramentas digitais podem transformar seu plano de estudos em uma rotina prática e organizada. O Minerva oferece recursos que facilitam cada etapa:</p>
 
-      <p>• Checklist: para registrar suas tarefas e acompanhar o que já foi feito;</p>
-      <p>• Flashcards: ideais para revisar conteúdos e testar sua memória;</p>
-      <p>• Pomodoro: para gerenciar o tempo e evitar a procrastinação.</p>
+      <ul>
+      <li>Checklist: para registrar suas tarefas e acompanhar o que já foi feito;</li>
+      <li>Flashcards: ideais para revisar conteúdos e testar sua memória;</li>
+      <li>Pomodoro: para gerenciar o tempo e evitar a procrastinação.</li>
+      </ul>
 
       <p>Usar essas ferramentas torna o estudo mais dinâmico e reduz o estresse de ter que controlar tudo manualmente.</p>
 
@@ -110,7 +114,7 @@ const blogPosts = [
     id: "3",
     slug: "gamificacao-torna-estudo-inteligente",
     title: "Suba de Nível: Como a Gamificação Torna o Estudo Mais Inteligente",
-    date: "2025-09-18",
+    date: "18/09/2025",
     summary: "Entenda como aplicar elementos de jogos ao estudo para tornar o aprendizado mais motivador e eficiente.",
     content: `
       <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80" alt="Conceito de gamificação">
@@ -122,10 +126,12 @@ const blogPosts = [
 
       <p>Entre os principais elementos da gamificação estão:</p>
 
-      <p>Desafios e missões – metas claras e alcançáveis que guiam o aprendizado.</p>
-      <p>Recompensas – pontos, medalhas, conquistas ou feedbacks positivos.</p>
-      <p>Progressão visível – acompanhar o próprio avanço de forma concreta.</p>
-      <p>Feedback imediato – saber rapidamente se acertou, errou e o que melhorar.</p>
+      <ul>
+      <li>Desafios e missões – metas claras e alcançáveis que guiam o aprendizado.</li>
+      <li>Recompensas – pontos, medalhas, conquistas ou feedbacks positivos.</li>
+      <li>Progressão visível – acompanhar o próprio avanço de forma concreta.</li>
+      <li>Feedback imediato – saber rapidamente se acertou, errou e o que melhorar.</li>
+      </ul>
 
       <p>Esses mecanismos despertam dopamina, o neurotransmissor da motivação e do prazer — o mesmo que nos mantém jogando "só mais uma fase".</p>
 
@@ -139,13 +145,12 @@ const blogPosts = [
       <h3>3. Como aplicar a gamificação nos estudos</h3>
       <p>Você não precisa de um videogame para estudar com gamificação — basta adotar estratégias que tornem o processo mais dinâmico e mensurável.</p>
 
-      <p>Transforme suas metas em missões: "Ler 10 páginas de Física" pode virar "Missão: dominar o capítulo de Energia em 25 minutos".</p>
-
-      <p>Use sistemas de pontos: A cada tarefa concluída, atribua pontos. Ao atingir determinada pontuação, se recompense com algo prazeroso — um lanche, um episódio da sua série favorita, um descanso merecido.</p>
-
-      <p>Crie rankings e desafios: Compare o progresso com amigos ou colegas de estudo (de forma saudável). A leve competitividade estimula foco e disciplina.</p>
-
-      <p>Visualize seu avanço: Use planilhas, aplicativos ou o Checklist do Minerva para acompanhar suas metas concluídas. Ver o progresso é uma das maiores fontes de motivação.</p>
+      <ul>
+      <li>Transforme suas metas em missões: "Ler 10 páginas de física" pode virar "Missão: dominar o capítulo de Energia em 25 minutos".</li>
+      <li>Use sistemas de pontos: a cada tarefa concluída, atribua pontos. Ao atingir determinada pontuação, se recompense com algo prazeroso — um lanche, um episódio da sua série favorita, um descanso merecido.</li>
+      <li>Crie rankings e desafios: compare o progresso com amigos ou colegas de estudo (de forma saudável). A leve competitividade estimula foco e disciplina.</li>
+      <li>Visualize seu avanço: use planilhas, aplicativos ou o Checklist do Minerva para acompanhar suas metas concluídas. Ver o progresso é uma das maiores fontes de motivação.</li>
+      </ul>
 
       <h3>4. O papel da gamificação no Minerva</h3>
       <p>O Minerva foi desenvolvido com base nos princípios da gamificação, aplicando ao estudo a mesma lógica de motivação, progresso e recompensa que torna os jogos tão envolventes.</p>
@@ -166,7 +171,7 @@ const blogPosts = [
     id: "4",
     slug: "dicas-mandar-bem-vestibular",
     title: "Dicas Práticas para Mandar Bem no Vestibular",
-    date: "2025-09-10",
+    date: "10/09/2025",
     summary: "Estratégias essenciais para se preparar e ter um ótimo desempenho no dia da prova.",
     content: `
       <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=800&q=80" alt="Estudante preparando vestibular">
@@ -201,10 +206,13 @@ const blogPosts = [
       <p>Você pode aplicar a Técnica Pomodoro, disponível no Minerva, para equilibrar foco e descanso, mantendo o cérebro produtivo sem esgotar sua energia.</p>
 
       <h3>6. Monte uma estratégia para o dia da prova</h3>
-      <p>• Comece pelas questões fáceis para ganhar confiança;</p>
-      <p>• Marque as mais difíceis para revisar depois;</p>
-      <p>• Administre o tempo de forma inteligente;</p>
-      <p>• Revise com calma a redação antes de entregar.</p>
+
+      <ol>
+      <li>Comece pelas questões fáceis para ganhar confiança;</li>
+      <li>Marque as mais difíceis para revisar depois;</li>
+      <li>Administre o tempo de forma inteligente;</li>
+      <li>Revise com calma a redação antes de entregar.</li>
+      </ol>
 
       <p>Essas ações simples fazem diferença entre uma boa nota e uma excelente nota.</p>
 
@@ -220,7 +228,7 @@ const blogPosts = [
     id: "5",
     slug: "produtividade-evitar-procrastinacao",
     title: "Produtividade nos Estudos: Como Evitar a Procrastinação",
-    date: "2025-09-05",
+    date: "05/09/2025",
     summary: "Descubra as causas da procrastinação e aprenda técnicas práticas para superá-la.",
     content: `
       <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80" alt="Pessoa focada estudando">
@@ -274,7 +282,7 @@ const blogPosts = [
     id: "6",
     slug: "saude-mental-bem-estar-estudos",
     title: "Saúde Mental e Bem-Estar Durante os Estudos",
-    date: "2025-08-28",
+    date: "28/08/2025",
     summary: "A importância de cuidar da saúde mental para um aprendizado sustentável e eficaz.",
     content: `
       <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=800&q=80" alt="Pessoa meditando">
