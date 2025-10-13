@@ -7,13 +7,15 @@ let showingFront = true;
 let correctCount = 0;
 let studyTotal = 0;
 
+let somAcerto = null;
+let somErro = null;
+
 const frontInput = document.getElementById("frontInput");
 const backInput = document.getElementById("backInput");
 const addBtn = document.getElementById("addFlashcard");
 const list = document.getElementById("flashcardList");
 const creationArea = document.getElementById("creationArea");
 
-const startBtn = document.getElementById("startStudy");
 const flipBtn = document.getElementById("flipCard");
 const nextBtn = document.getElementById("nextCard");
 const correctBtn = document.getElementById("correctCard");
@@ -25,6 +27,76 @@ const cardSide = document.getElementById("cardSide");
 const progress = document.getElementById("progress");
 
 const FLIP_MS = 600;
+
+function carregarSons() {
+  somAcerto = new Audio("audio/correct.mp3");
+  somAcerto.volume = 0.5;
+  
+  somErro = new Audio("audio/wrong.mp3");
+  somErro.volume = 0.5;
+}
+
+function tocarSomAcerto() {
+  if (somAcerto) {
+    somAcerto.currentTime = 0;
+    somAcerto.play().catch(() => tocarBeepAcerto());
+  } else {
+    tocarBeepAcerto();
+  }
+}
+
+function tocarSomErro() {
+  if (somErro) {
+    somErro.currentTime = 0;
+    somErro.play().catch(() => tocarBeepErro());
+  } else {
+    tocarBeepErro();
+  }
+}
+
+function tocarBeepAcerto() {
+  try {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.frequency.value = 800;
+    oscillator.type = 'sine';
+    
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.2);
+  } catch (e) {
+    console.log("Erro ao criar beep de acerto:", e);
+  }
+}
+
+function tocarBeepErro() {
+  try {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.frequency.value = 200;
+    oscillator.type = 'sawtooth';
+    
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.3);
+  } catch (e) {
+    console.log("Erro ao criar beep de erro:", e);
+  }
+}
 
 function saveFlashcards() {
   localStorage.setItem("flashcards", JSON.stringify(flashcards));
@@ -102,7 +174,7 @@ function showCard() {
   const studyArea = document.getElementById("studyArea");
 
   if (!inStudy || studyQueue.length === 0) {
-    if (frontEl) frontEl.textContent = inStudy ? "Nenhum flashcard disponível!" : 'Clique em "Iniciar Estudo"';
+    if (frontEl) frontEl.textContent = inStudy ? "Nenhum flashcard disponível!" : '👆 Clique aqui para iniciar o estudo';
     if (backEl) backEl.textContent = "";
     cardSide.textContent = "-";
     if (studyArea) studyArea.classList.remove("flipped");
@@ -118,31 +190,40 @@ function showCard() {
   cardSide.textContent = "Frente";
 }
 
-startBtn.addEventListener("click", () => {
-  if (flashcards.length === 0) {
-    alert("Nenhum flashcard criado!");
-    return;
-  }
+const studyArea = document.getElementById("studyArea");
+if (studyArea) {
+  studyArea.addEventListener("click", () => {
+    if (!inStudy) {
+      if (flashcards.length === 0) {
+        alert("Nenhum flashcard criado!");
+        return;
+      }
 
-  studyQueue = flashcards.map(c => ({ ...c }));
-  inStudy = true;
-  currentIndex = 0;
-  showingFront = true;
-  correctCount = 0;
-  studyTotal = studyQueue.length;
+      studyQueue = flashcards.map(c => ({ ...c }));
+      inStudy = true;
+      currentIndex = 0;
+      showingFront = true;
+      correctCount = 0;
+      studyTotal = studyQueue.length;
 
-  creationArea.style.display = "none";
+      creationArea.style.display = "none";
 
-  flipBtn.disabled = false;
-  nextBtn.disabled = false;
-  correctBtn.disabled = false;
-  wrongBtn.disabled = false;
-  backToCreate.disabled = false;
-  startBtn.disabled = true;
+      flipBtn.disabled = false;
+      nextBtn.disabled = false;
+      correctBtn.disabled = false;
+      wrongBtn.disabled = false;
+      backToCreate.disabled = false;
 
-  showCard();
-  updateProgress();
-});
+      showCard();
+      updateProgress();
+      
+      carregarSons();
+      console.log("📚 Estudo iniciado!");
+    }
+  });
+
+  studyArea.style.cursor = "pointer";
+}
 
 flipBtn.addEventListener("click", () => {
   if (!inStudy || studyQueue.length === 0) return;
@@ -191,6 +272,9 @@ function withFlipDelay(callback) {
 correctBtn.addEventListener("click", () => {
   if (!inStudy || studyQueue.length === 0) return;
 
+  tocarSomAcerto();
+  console.log("✅ Acerto!");
+
   const studyArea = document.getElementById("studyArea");
   if (!studyArea.classList.contains("flipped")) {
     studyArea.classList.add("flipped");
@@ -236,6 +320,9 @@ correctBtn.addEventListener("click", () => {
 
 wrongBtn.addEventListener("click", () => {
   if (!inStudy || studyQueue.length === 0) return;
+
+  tocarSomErro();
+  console.log("❌ Erro!");
 
   const studyArea = document.getElementById("studyArea");
   if (!studyArea.classList.contains("flipped")) {
@@ -287,7 +374,6 @@ function endStudy(finished = true, message = null) {
   correctBtn.disabled = true;
   wrongBtn.disabled = true;
   backToCreate.disabled = true;
-  startBtn.disabled = false;
 
   const frontEl = document.getElementById("cardFront");
   const backEl = document.getElementById("cardBack");
@@ -301,7 +387,10 @@ function endStudy(finished = true, message = null) {
 
   cardSide.textContent = "-";
   updateProgress();
+  
+  console.log("🏁 Estudo finalizado!");
 }
 
 renderList();
 updateProgress();
+showCard();

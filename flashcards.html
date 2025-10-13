@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minerva - Flashcards</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:,">
   <script src="JS/darkmode.js" defer></script>
   <script src="JS/flashcard.js" defer></script>
   <script src="JS/main.js" defer></script>
@@ -47,9 +48,9 @@
     <div class="estudo-container">
       <h3>Modo Estudo</h3>
 
-      <div id="studyArea" class="study-card">
+      <div id="studyArea" class="study-card" title="Clique para iniciar o estudo">
         <div class="card-inner" id="cardInner">
-          <div class="card-face card-front" id="cardFront">Clique em "Iniciar Estudo"</div>
+          <div class="card-face card-front" id="cardFront">👆 Clique aqui para iniciar o estudo</div>
           <div class="card-face card-back" id="cardBack"></div>
         </div>
       </div>
@@ -58,7 +59,6 @@
       <p id="progress">Progresso: 0/0 — Restantes: 0</p>
 
       <div class="study-buttons" aria-hidden="false">
-        <button id="startStudy">Iniciar Estudo</button>
         <button id="flipCard" disabled>Virar</button>
         <button id="nextCard" disabled>Próximo</button>
         <button id="correctCard" disabled>Acerto ✅</button>

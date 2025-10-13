@@ -4,7 +4,6 @@ let tempoAtual = tempoEstudo;
 let emEstudo = true;
 let intervalo;
 
-// Sistema de música
 let audioAtual = null;
 let notificacaoAudio = null;
 
@@ -60,7 +59,6 @@ function atualizarDisplay() {
     statusPomodoro.textContent = emEstudo ? "Tempo de Estudo" : "Tempo de Descanso";
 }
 
-// Beep de backup caso o arquivo de som não exista
 function tocarBeep() {
     try {
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -85,15 +83,12 @@ function tocarBeep() {
     }
 }
 
-// Som de notificação quando trocar o período
 function tocarNotificacao() {
     console.log("🔔 NOTIFICAÇÃO ATIVADA!");
     console.log("Estado atual:", emEstudo ? "Estudo" : "Descanso");
     
-    // Toca beep sempre (garantido)
     tocarBeep();
     
-    // Tenta tocar som personalizado
     try {
         const notificacaoAudio = new Audio("audio/notification.mp3");
         notificacaoAudio.volume = 0.5;
@@ -103,8 +98,7 @@ function tocarNotificacao() {
     } catch (e) {
         console.log("❌ Erro ao criar áudio:", e.message);
     }
-    
-    // Notificação visual do navegador
+
     if ("Notification" in window && Notification.permission === "granted") {
         const mensagem = emEstudo ? "📚 Hora de estudar!" : "⏰ Hora do descanso!";
         new Notification("Pomodoro - Minerva", {
@@ -121,22 +115,18 @@ function iniciarPomodoro() {
                 tempoAtual--;
                 atualizarDisplay();
             } else {
-                // Quando chegar a zero
                 console.log("⏰ Timer zerou!");
                 clearInterval(intervalo);
                 intervalo = null;
-                
-                // Toca o alarme
+
                 tocarNotificacao();
-                
-                // Troca o período (estudo <-> descanso)
+
                 emEstudo = !emEstudo;
                 tempoAtual = emEstudo ? tempoEstudo : tempoDescanso;
                 atualizarDisplay();
                 
                 console.log("🔄 Próximo período:", emEstudo ? "Estudo" : "Descanso");
-                
-                // Reinicia automaticamente após 2 segundos
+
                 setTimeout(() => {
                     console.log("▶️ Reiniciando timer...");
                     iniciarPomodoro();
@@ -146,7 +136,6 @@ function iniciarPomodoro() {
     }
 }
 
-// Funções de controle de música
 function trocarMusica(musicaId) {
     if (audioAtual) {
         audioAtual.pause();
@@ -188,7 +177,6 @@ function ajustarVolume(valor) {
 
 document.getElementById("iniciar").onclick = () => {
     if (!intervalo) {
-        // Pede permissão para notificações (apenas primeira vez)
         if ("Notification" in window && Notification.permission === "default") {
             Notification.requestPermission();
         }
@@ -232,7 +220,6 @@ document.getElementById("resetar").onclick = () => {
     console.log("🔄 Timer resetado!");
 };
 
-// Event listeners para controles de música
 document.querySelectorAll('.music-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         const musicaId = btn.getAttribute('data-music');
