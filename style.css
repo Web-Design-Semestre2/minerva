@@ -906,6 +906,27 @@ body.dark-mode #flashcardList li span {
     text-decoration: none;
 }
 
+.post-sep {
+  height: 1px;
+  width: 90%;
+  max-width: 760px;
+  margin: 28px auto;
+  border: none;
+  border-radius: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(80, 90, 100, 0.25),
+    rgba(120, 130, 140, 0.4),
+    rgba(80, 90, 100, 0.25),
+    transparent
+  );
+  box-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.25) inset;
+  opacity: 0.9;
+}
+
+
+
 /* ================= CONTATO ================= */
 .contato-container {
     max-width: 900px;
