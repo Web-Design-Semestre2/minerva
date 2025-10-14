@@ -606,6 +606,10 @@ input[type="button"]:hover {
   border: 1px solid var(--color-border);
 }
 
+.flashcard-container > h2 {
+  margin-bottom: 30px;
+}
+
 .flashcard-form {
   display: flex;
   flex-wrap: wrap;
