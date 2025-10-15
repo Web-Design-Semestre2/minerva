@@ -7,7 +7,7 @@ const blogPosts = [
     date: "01/10/2025",
     summary: "Descubra técnicas comprovadas pela neurociência que podem revolucionar sua rotina de estudos.",
     content: `
-      <img src="imagens/Metodos1.png" width="700" alt="Pessoa estudando com livros e notebook">
+      <img src="imagens/Metodos1.png" width="700" alt="Mulher concentrada, sentada em uma pilha de livros enquanto usa seu notebook, rodeada por elementos que referenciam os métodos de estudo">
       
       <p>Estudar bem não significa passar horas diante dos livros sem parar. O verdadeiro aprendizado está em como se estuda, não apenas em quanto tempo se dedica. Muitos estudantes ainda acreditam que o segredo do sucesso é estudar o máximo possível, mas pesquisas em neurociência mostram que o fator decisivo é a estratégia de estudo. Usar métodos comprovados e adequados ao seu perfil pode multiplicar seus resultados.</p>
 
@@ -25,7 +25,7 @@ const blogPosts = [
       <h3>2. Mapas Mentais</h3>
       <p>Os mapas mentais são representações gráficas que transformam informações em algo visual e intuitivo. Coloque o tema principal no centro e crie ramificações para os subtópicos, usando cores, setas e palavras-chave. Essa técnica estimula a criatividade, melhora a organização das ideias e facilita a revisão de conteúdos densos. É especialmente eficaz em matérias teóricas, como História, Geografia e Biologia.</p>
 
-      <img src="imagens/Metodos2.png" width="700" alt="Mapa mental colorido">
+      <img src="imagens/Metodos2.png" width="700" alt="Exemplo de um mapa mental - um método de organização de ideias">
 
       <hr class="post-sep">
 
@@ -80,7 +80,7 @@ const blogPosts = [
     date: "25/09/2025",
     summary: "Aprenda a criar um plano de estudos eficiente e equilibrado, adaptado ao seu ritmo e objetivos.",
     content: `
-      <img src="imagens/Plano1.png" width="700" alt="Planejamento de estudos">
+      <img src="imagens/Plano1.png" width="700" alt="Estudante com capelo sentado em frente ao computador e pilhas de livros">
       
       <p>Estudar sem organização é como tentar chegar a um destino sem mapa: você até pode avançar, mas o caminho será mais longo e confuso. Ter um plano de estudos personalizado é a base para alcançar bons resultados de forma equilibrada, sem sobrecarga e com mais confiança.</p>
 
@@ -100,7 +100,7 @@ const blogPosts = [
 
       <p>Essa análise evita a sobrecarga e traz equilíbrio ao plano. Afinal, estudar com eficiência é diferente de estudar em excesso.</p>
 
-      <img src="imagens/Plano2.png" width="700" alt="Organização de tarefas">
+      <img src="imagens/Plano2.png" width="700" alt="Homem fazendo uma autoavaliação de seus estudos">
 
       <hr class="post-sep">
 
@@ -147,7 +147,7 @@ const blogPosts = [
     date: "18/09/2025",
     summary: "Entenda como aplicar elementos de jogos ao estudo para tornar o aprendizado mais motivador e eficiente.",
     content: `
-      <img src="imagens/Game1.png" width="700" alt="Conceito de gamificação">
+      <img src="imagens/Game1.png" width="700" alt="Ícones e elementos representando jogos de videogame e estudo">
       
       <p>Você já percebeu como é fácil passar horas em um jogo sem sentir o tempo passar, mas estudar por 30 minutos parece um desafio? A diferença não está no conteúdo, mas no método de engajamento. Enquanto os jogos estimulam o cérebro com recompensas, desafios e progressão, o estudo tradicional ainda se apoia em rotinas rígidas e pouco motivadoras. É aí que entra a gamificação — a arte de aplicar a lógica dos jogos ao aprendizado.</p>
 
@@ -174,7 +174,7 @@ const blogPosts = [
 
       <p>Essa abordagem muda completamente a relação com o aprendizado: o estudante deixa de ser passivo e passa a agir como protagonista da própria jornada.</p>
 
-      <img src="imagens/Game2.png" width="700" alt="Conquistas e progressão">
+      <img src="imagens/Game2.png" width="700" alt="Caminho/trajeto com vários ícones que representam elementos de gamificação">
 
       <hr class="post-sep">
 
@@ -214,7 +214,7 @@ const blogPosts = [
     date: "10/09/2025",
     summary: "Estratégias essenciais para se preparar e ter um ótimo desempenho no dia da prova.",
     content: `
-      <img src="imagens/Vest1.jpg" width="700" alt="Estudante preparando vestibular">
+      <img src="imagens/Vest1.jpg" width="700" alt="Grande capelo que funciona como uma porta de entrada">
       
       <p>O vestibular é, para muitos estudantes, o grande desafio que marca o início da vida acadêmica. A pressão, o cansaço e o excesso de conteúdo podem gerar ansiedade, mas o segredo para ter um bom desempenho não está em estudar sem parar — e sim em estudar com estratégia.</p>
 
@@ -234,7 +234,7 @@ const blogPosts = [
 
       <p>Uma boa forma de fazer isso é usar flashcards — eles permitem revisar rapidamente fórmulas, conceitos e definições importantes, sem depender de anotações longas.</p>
 
-      <img src="imagens/Vest2.jpg" width="700" alt="Redação sendo escrita">
+      <img src="imagens/Vest2.jpg" width="700" alt="Gabarito múltipla escolha sendo preenchido a lápis">
 
       <hr class="post-sep">
 
@@ -285,7 +285,7 @@ const blogPosts = [
     date: "05/09/2025",
     summary: "Descubra as causas da procrastinação e aprenda técnicas práticas para superá-la.",
     content: `
-      <img src="imagens/Proc1.png" width="700" alt="Pessoa focada estudando">
+      <img src="imagens/Proc1.png" width="700" alt="Homem relaxado e sorrindo na cadeira com o celular na mão, ignorando suas tarefas">
       
       <p>Todos sabemos o que é preciso fazer: abrir o caderno, revisar o conteúdo, resolver exercícios. Ainda assim, algo dentro de nós insiste em adiar o início. Arrumamos a mesa, verificamos o celular, inventamos desculpas. Essa é a procrastinação, e ela não é sinal de preguiça — é um mecanismo psicológico de autodefesa.</p>
 
@@ -307,7 +307,7 @@ const blogPosts = [
 
       <p>O simples ato de dar o primeiro passo reduz a resistência mental e aumenta a sensação de progresso.</p>
 
-      <img src="imagens/Proc2.jpg" width="700" alt="Ambiente de estudo organizado">
+      <img src="imagens/Proc2.jpg" width="700" alt="Pessoas trabalhando em conjunto e elementos simbolizando metas e objetivos">
 
       <hr class="post-sep">
       
@@ -353,7 +353,7 @@ const blogPosts = [
     date: "28/08/2025",
     summary: "A importância de cuidar da saúde mental para um aprendizado sustentável e eficaz.",
     content: `
-      <img src="imagens/Saude1.jpg" width="700" alt="Pessoa meditando">
+      <img src="imagens/Saude1.jpg" width="700" alt="Mulher estressada na frente do computador, com as mãos na cabeça">
       
       <p>Em meio a metas, provas e prazos, é fácil esquecer que o aprendizado depende de algo muito mais importante do que apenas disciplina: a mente equilibrada. Cuidar da saúde mental não é luxo, é estratégia. Um estudante emocionalmente estável aprende melhor, retém mais conteúdo e enfrenta desafios com mais clareza.</p>
 
@@ -377,7 +377,7 @@ const blogPosts = [
 
       <p>A Técnica Pomodoro, disponível no Minerva, é uma ótima aliada: ela equilibra tempo de foco e descanso, evitando que o cansaço se acumule.</p>
 
-      <img src="imagens/Saude2.png" width="700" alt="Pessoa relaxando ao ar livre">
+      <img src="imagens/Saude2.png" width="700" alt="Homem meditando enquanto objetos relacionados aos estudos flutuam ao seu redor, simbolizando o equilíbrio">
 
       <hr class="post-sep">
       
