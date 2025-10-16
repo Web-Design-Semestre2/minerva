@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contato</title>
   <link rel="stylesheet" href="style.css">
+  <script src="JS/notifications.js" defer></script>
   <script src="JS/darkmode.js" defer></script>
   <script src="JS/main.js" defer></script>
 </head>
@@ -62,6 +63,41 @@
   <footer>
     <p>© 2025 Minerva. Todos os direitos reservados.</p>
   </footer>
+
+  <!-- Adicione este script na página contato.html, antes do </body> -->
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.contato-form');
+    
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const nome = document.getElementById('nome').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const mensagem = document.getElementById('mensagem').value.trim();
+
+        if (!nome || !email || !mensagem) {
+          window.mostrarNotificacao('Preencha todos os campos!', 'aviso');
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          window.mostrarNotificacao('Email inválido!', 'erro');
+          return;
+        }
+
+        window.mostrarNotificacao('Mensagem enviada com sucesso! ✓', 'sucesso');
+
+        form.reset();
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  });
+  </script>
 
 </body>
 </html>

@@ -1146,7 +1146,6 @@ footer p {
   transform: scale(1.2);
 }
 
-/* Responsividade para mobile */
 @media (max-width: 600px) {
   .music-buttons {
     flex-direction: column;
@@ -1173,6 +1172,117 @@ footer p {
   }
 }
 
+/* ================= SISTEMA DE NOTIFICAÇÕES TOAST ================= */
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--color-bg-alt);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-left: 4px solid;
+  min-width: 280px;
+  max-width: 400px;
+  opacity: 0;
+  transform: translateX(400px);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: auto;
+}
+
+.toast-show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.toast-icon {
+  font-size: 1.4rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.toast-message {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.toast-sucesso {
+  border-left-color: #10b981;
+}
+
+.toast-sucesso .toast-icon {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.toast-info {
+  border-left-color: var(--color-accent);
+}
+
+.toast-info .toast-icon {
+  color: var(--color-accent);
+  background: rgba(35, 134, 166, 0.1);
+}
+
+.toast-aviso {
+  border-left-color: #f59e0b;
+}
+
+.toast-aviso .toast-icon {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.toast-erro {
+  border-left-color: #ef4444;
+}
+
+.toast-erro .toast-icon {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+body.dark-mode .toast {
+  background: #232B35;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .toast-message {
+  color: #E4EBF5;
+}
+
+@media (max-width: 500px) {
+  #toast-container {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+  }
+  
+  .toast {
+    min-width: auto;
+    max-width: 100%;
+  }
+}
 
 /* ================= RESPONSIVIDADE ================= */
 @media (max-width: 400px) {

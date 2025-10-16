@@ -99,6 +99,12 @@ function tocarNotificacao() {
         console.log("❌ Erro ao criar áudio:", e.message);
     }
 
+    if (emEstudo) {
+        window.mostrarNotificacao('⏰ Hora do descanso! Relaxe um pouco', 'info');
+    } else {
+        window.mostrarNotificacao('📚 Hora de estudar! Vamos lá!', 'sucesso');
+    }
+
     if ("Notification" in window && Notification.permission === "granted") {
         const mensagem = emEstudo ? "📚 Hora de estudar!" : "⏰ Hora do descanso!";
         new Notification("Pomodoro - Minerva", {
@@ -149,15 +155,20 @@ function trocarMusica(musicaId) {
         
         audioAtual.addEventListener('error', function() {
             console.warn('Erro ao carregar áudio MP3');
+            window.mostrarNotificacao('Erro ao carregar música', 'erro');
         });
         
         audioAtual.loop = true;
         audioAtual.volume = 0.3;
         
-        audioAtual.play().catch(err => {
+        audioAtual.play().then(() => {
+            window.mostrarNotificacao(`🎵 ${musicas[musicaId].nome}`, 'info');
+        }).catch(err => {
             console.log("Erro ao tocar música:", err);
-            alert("Não foi possível reproduzir o áudio. Verifique se o arquivo existe.");
+            window.mostrarNotificacao('Não foi possível reproduzir o áudio', 'erro');
         });
+    } else {
+        window.mostrarNotificacao('🔇 Música desativada', 'info');
     }
 
     document.querySelectorAll('.music-btn').forEach(btn => {
@@ -190,19 +201,23 @@ document.getElementById("iniciar").onclick = () => {
                 tempoDescanso = novoDescanso;
                 tempoAtual = emEstudo ? tempoEstudo : tempoDescanso;
             } else {
-                alert("Digite o tempo no formato MM:SS");
+                window.mostrarNotificacao('Digite o tempo no formato MM:SS', 'aviso');
                 return;
             }
         }
         console.log("▶️ Timer iniciado!");
+        window.mostrarNotificacao('⏱️ Pomodoro iniciado!', 'sucesso');
         iniciarPomodoro();
     }
 };
 
 document.getElementById("pausar").onclick = () => {
-    clearInterval(intervalo);
-    intervalo = null;
-    console.log("⏸️ Timer pausado!");
+    if (intervalo) {
+        clearInterval(intervalo);
+        intervalo = null;
+        console.log("⏸️ Timer pausado!");
+        window.mostrarNotificacao('⏸️ Timer pausado', 'info');
+    }
 };
 
 document.getElementById("resetar").onclick = () => {
@@ -218,6 +233,7 @@ document.getElementById("resetar").onclick = () => {
     tempoAtual = tempoEstudo;
     atualizarDisplay();
     console.log("🔄 Timer resetado!");
+    window.mostrarNotificacao('🔄 Timer resetado', 'info');
 };
 
 document.querySelectorAll('.music-btn').forEach(btn => {

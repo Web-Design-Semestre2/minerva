@@ -126,6 +126,8 @@ function renderList() {
       saveFlashcards();
       renderList();
 
+      window.mostrarNotificacao('Flashcard excluído', 'info');
+
       if (inStudy) {
         studyQueue = studyQueue.filter(
           c => !(c.front === removed.front && c.back === removed.back)
@@ -148,7 +150,10 @@ function renderList() {
 addBtn.addEventListener("click", () => {
   const front = frontInput.value.trim();
   const back = backInput.value.trim();
-  if (!front || !back) return alert("Preencha frente e verso!");
+  if (!front || !back) {
+    window.mostrarNotificacao('Preencha frente e verso do flashcard!', 'aviso');
+    return;
+  }
 
   const newCard = { front, back };
   flashcards.push(newCard);
@@ -156,6 +161,8 @@ addBtn.addEventListener("click", () => {
   renderList();
   frontInput.value = "";
   backInput.value = "";
+
+  window.mostrarNotificacao('Flashcard criado com sucesso! 📝', 'sucesso');
 
   if (inStudy) {
     studyQueue.push({ ...newCard });
@@ -195,7 +202,7 @@ if (studyArea) {
   studyArea.addEventListener("click", () => {
     if (!inStudy) {
       if (flashcards.length === 0) {
-        alert("Nenhum flashcard criado!");
+        window.mostrarNotificacao('Crie flashcards antes de estudar!', 'aviso');
         return;
       }
 
@@ -218,7 +225,8 @@ if (studyArea) {
       updateProgress();
       
       carregarSons();
-      console.log("📚 Estudo iniciado!");
+
+      window.mostrarNotificacao('Modo de estudo ativado! 📚', 'info');
     }
   });
 
@@ -273,7 +281,6 @@ correctBtn.addEventListener("click", () => {
   if (!inStudy || studyQueue.length === 0) return;
 
   tocarSomAcerto();
-  console.log("✅ Acerto!");
 
   const studyArea = document.getElementById("studyArea");
   if (!studyArea.classList.contains("flipped")) {
@@ -322,7 +329,6 @@ wrongBtn.addEventListener("click", () => {
   if (!inStudy || studyQueue.length === 0) return;
 
   tocarSomErro();
-  console.log("❌ Erro!");
 
   const studyArea = document.getElementById("studyArea");
   if (!studyArea.classList.contains("flipped")) {
@@ -358,7 +364,10 @@ wrongBtn.addEventListener("click", () => {
 
 backToCreate.addEventListener("click", () => {
   if (!inStudy) return;
-  creationArea.style.display = creationArea.style.display === "none" ? "" : "none";
+
+  endStudy(false, "Estudo interrompido para criar novos flashcards");
+
+  window.mostrarNotificacao('Estudo reiniciado. Crie novos cards!', 'info');
 });
 
 function endStudy(finished = true, message = null) {
@@ -377,18 +386,34 @@ function endStudy(finished = true, message = null) {
 
   const frontEl = document.getElementById("cardFront");
   const backEl = document.getElementById("cardBack");
+  const studyArea = document.getElementById("studyArea");
+  
   if (finished) {
     if (frontEl) frontEl.textContent = "🎉 Parabéns! Você acertou todos os flashcards!";
     if (backEl) backEl.textContent = "";
+
+    window.mostrarNotificacao('Parabéns! Estudo concluído! 🎉', 'sucesso');
+
+    setTimeout(() => {
+      if (frontEl) frontEl.textContent = "👆 Clique aqui para iniciar o estudo";
+      correctCount = 0;
+      updateProgress();
+    }, 3000);
   } else {
-    if (frontEl) frontEl.textContent = message || "Estudo finalizado.";
+    if (frontEl) frontEl.textContent = "👆 Clique aqui para iniciar o estudo";
     if (backEl) backEl.textContent = "";
+    
+    if (message) {
+      window.mostrarNotificacao(message, 'info');
+    }
+
+    correctCount = 0;
   }
 
+  if (studyArea) studyArea.classList.remove("flipped");
+  
   cardSide.textContent = "-";
   updateProgress();
-  
-  console.log("🏁 Estudo finalizado!");
 }
 
 renderList();

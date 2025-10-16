@@ -19,5 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
     darkToggle.textContent = isNowDark ? "☀️" : "🌙";
 
     localStorage.setItem("darkMode", isNowDark ? "true" : "false");
+
+    if (isNowDark) {
+      window.mostrarNotificacao('Modo escuro ativado 🌙', 'info');
+    } else {
+      window.mostrarNotificacao('Modo claro ativado ☀️', 'info');
+    }
   });
 });

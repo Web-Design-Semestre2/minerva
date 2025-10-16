@@ -29,6 +29,12 @@ function renderizarLista() {
       tarefas[index].concluida = checkbox.checked;
       span.classList.toggle("feito");
       salvarTarefas();
+
+      if (checkbox.checked) {
+        window.mostrarNotificacao('Tarefa concluída! 🎉', 'sucesso');
+      } else {
+        window.mostrarNotificacao('Tarefa desmarcada', 'info');
+      }
     });
 
     const btnExcluir = document.createElement("button");
@@ -48,6 +54,8 @@ function renderizarLista() {
       tarefas.splice(index, 1);
       salvarTarefas();
       renderizarLista();
+
+      window.mostrarNotificacao('Tarefa excluída', 'info');
     });
 
     li.appendChild(checkbox);
@@ -69,6 +77,8 @@ function adicionarTarefa() {
     renderizarLista();
     input.value = "";
     input.focus();
+
+    window.mostrarNotificacao('Tarefa adicionada com sucesso! ✓', 'sucesso');
   }
 }
 
