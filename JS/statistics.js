@@ -1,11 +1,11 @@
 const STORAGE_KEY = 'minerva_study_stats';
 
-// Inicializa o objeto de estatísticas com valores padrão
 function getStats() {
     const defaultStats = {
-        totalTimeSeconds: 0, // Agora rastrea em segundos para maior precisão
+        totalTimeSeconds: 0,
         pomodoroSessions: 0,
         tasksCompleted: 0,
+        flashcardsCreated: 0,
         flashcardSessionsCompleted: 0,
         correctAnswers: 0,
         wrongAnswers: 0,
@@ -15,21 +15,19 @@ function getStats() {
     const savedStats = localStorage.getItem(STORAGE_KEY);
     const stats = savedStats ? JSON.parse(savedStats) : defaultStats;
     
-    // Migração de dados: Se existia totalTimeMinutes do formato antigo, converte para totalTimeSeconds
     if (stats.totalTimeMinutes !== undefined) {
         stats.totalTimeSeconds = stats.totalTimeMinutes * 60;
         delete stats.totalTimeMinutes;
         saveStats(stats);
     }
-    // Garante que o campo exista
+
     if (stats.totalTimeSeconds === undefined) stats.totalTimeSeconds = 0;
-    
+    if (stats.flashcardsCreated === undefined) stats.flashcardsCreated = 0;
     if (stats.flashcardSessionsCompleted === undefined) stats.flashcardSessionsCompleted = 0;
 
     return stats;
 }
 
-// Salva o objeto de estatísticas
 function saveStats(stats) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(stats));
 }
@@ -38,7 +36,6 @@ function saveStats(stats) {
 // FUNÇÕES DE REGISTRO
 // =================================================================
 
-// 1. Pomodoro - Aceita duração em SEGUNDOS
 function recordPomodoroSession(durationSeconds) {
     const stats = getStats();
     stats.totalTimeSeconds += durationSeconds;
@@ -48,11 +45,12 @@ function recordPomodoroSession(durationSeconds) {
         type: 'pomodoro',
         date: Date.now(),
         details: `Sessão Pomodoro concluída.`,
-        duration: durationSeconds // Armazena a duração exata
+        duration: durationSeconds
     });
     
     stats.recentActivity = stats.recentActivity.slice(0, 10);
     saveStats(stats);
+    
     if (document.getElementById('totalTimeValue')) {
         renderStats();
     }
@@ -62,10 +60,8 @@ function recordFlashcardSessionEnd(correctCount, wrongCount) {
     const stats = getStats();
     stats.correctAnswers += correctCount;
     stats.wrongAnswers += wrongCount;
-
     stats.flashcardSessionsCompleted++;
     
-    // Registra a sessão agrupada
     stats.recentActivity.unshift({
         type: 'flashcard_session',
         date: Date.now(),
@@ -75,27 +71,47 @@ function recordFlashcardSessionEnd(correctCount, wrongCount) {
     
     stats.recentActivity = stats.recentActivity.slice(0, 10);
     saveStats(stats);
+    
     if (document.getElementById('correctAnswersValue')) {
         renderStats();
     }
 }
 
-// 3. Checklist
 function recordTaskCompletion() {
     const stats = getStats();
     stats.tasksCompleted++;
+    
     stats.recentActivity.unshift({
         type: 'task',
         date: Date.now(),
         details: 'Tarefa marcada como concluída.'
     });
+    
     stats.recentActivity = stats.recentActivity.slice(0, 10);
     saveStats(stats);
+    
     if (document.getElementById('tasksCompletedValue')) {
         renderStats();
     }
 }
 
+function recordFlashcardCreation() {
+    const stats = getStats();
+    stats.flashcardsCreated++;
+    
+    stats.recentActivity.unshift({
+        type: 'flashcard_creation',
+        date: Date.now(),
+        details: 'Novo flashcard criado.'
+    });
+    
+    stats.recentActivity = stats.recentActivity.slice(0, 10);
+    saveStats(stats);
+    
+    if (document.getElementById('flashcardsCreatedValue')) {
+        renderStats();
+    }
+}
 
 // =================================================================
 // FUNÇÕES DE FORMATAÇÃO E RENDERIZAÇÃO
@@ -134,11 +150,9 @@ function formatDuration(totalSeconds) {
     return result.trim();
 }
 
-// Formatação para o histórico (MM:SS)
 function formatTimeMinSec(totalSeconds) {
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
-    // Garante dois dígitos
     return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
@@ -161,34 +175,52 @@ function formatDate(timestamp) {
 
 function renderStats() {
     const stats = getStats();
-    
-    // 1. Tempo Total de Estudo (Usando totalTimeSeconds)
+
     const totalTimeValue = document.getElementById('totalTimeValue');
     if (totalTimeValue) {
         totalTimeValue.textContent = formatDuration(stats.totalTimeSeconds);
     }
 
-    // 2. Outras Métricas Chave
-    document.getElementById('pomodoroCountValue').textContent = stats.pomodoroSessions.toLocaleString('pt-BR');
-    document.getElementById('tasksCompletedValue').textContent = stats.tasksCompleted.toLocaleString('pt-BR');
-    document.getElementById('flashcardsCreatedValue').textContent = stats.flashcardsCreated.toLocaleString('pt-BR');
+    const pomodoroCountValue = document.getElementById('pomodoroCountValue');
+    if (pomodoroCountValue) {
+        pomodoroCountValue.textContent = stats.pomodoroSessions.toLocaleString('pt-BR');
+    }
+    
+    const tasksCompletedValue = document.getElementById('tasksCompletedValue');
+    if (tasksCompletedValue) {
+        tasksCompletedValue.textContent = stats.tasksCompleted.toLocaleString('pt-BR');
+    }
+    
+    const flashcardsCreatedValue = document.getElementById('flashcardsCreatedValue');
+    if (flashcardsCreatedValue) {
+        flashcardsCreatedValue.textContent = stats.flashcardsCreated.toLocaleString('pt-BR');
+    }
     
     const flashcardsSessionsValue = document.getElementById('flashcardsSessionsValue');
     if (flashcardsSessionsValue) {
         flashcardsSessionsValue.textContent = stats.flashcardSessionsCompleted.toLocaleString('pt-BR');
     }
 
-    // 3. Performance em Flashcards
     const totalAnswers = stats.correctAnswers + stats.wrongAnswers;
     const hitRate = totalAnswers > 0 
         ? ((stats.correctAnswers / totalAnswers) * 100).toFixed(1) 
         : 0;
 
-    document.getElementById('correctAnswersValue').textContent = stats.correctAnswers.toLocaleString('pt-BR');
-    document.getElementById('wrongAnswersValue').textContent = stats.wrongAnswers.toLocaleString('pt-BR');
-    document.getElementById('hitRateValue').textContent = `${hitRate}%`;
+    const correctAnswersValue = document.getElementById('correctAnswersValue');
+    if (correctAnswersValue) {
+        correctAnswersValue.textContent = stats.correctAnswers.toLocaleString('pt-BR');
+    }
     
-    // 4. Histórico Recente
+    const wrongAnswersValue = document.getElementById('wrongAnswersValue');
+    if (wrongAnswersValue) {
+        wrongAnswersValue.textContent = stats.wrongAnswers.toLocaleString('pt-BR');
+    }
+    
+    const hitRateValue = document.getElementById('hitRateValue');
+    if (hitRateValue) {
+        hitRateValue.textContent = `${hitRate}%`;
+    }
+
     const activityList = document.getElementById('recentActivityList');
     if (activityList) {
         activityList.innerHTML = '';
@@ -198,15 +230,15 @@ function renderStats() {
             stats.recentActivity.forEach(activity => {
                 const li = document.createElement('li');
                 li.className = 'activity-item';
-                let activityDescription = activity.details;
+                let activityDescription = activity.details || '';
 
                 if (activity.type === 'pomodoro') {
-                    // Pomodoro: mostra minutos e segundos
                     const time = formatTimeMinSec(activity.duration || 0);
                     activityDescription = `Sessão Pomodoro concluída: ${time}`;
                 } else if (activity.type === 'flashcard_session') {
-                    // Flashcard Session: mostra acertos e erros agrupados
                     activityDescription = `Sessão Flashcard: ${activity.correct} acertos, ${activity.wrong} erros.`;
+                } else if (activity.type === 'flashcard_creation') {
+                    activityDescription = 'Novo flashcard criado.';
                 }
                 
                 li.textContent = `${formatDate(activity.date)}: ${activityDescription}`;
@@ -227,15 +259,13 @@ function resetAllStats() {
     }
 }
 
-// Expõe as funções de registro globalmente
 window.StudyStats = {
     recordPomodoroSession,
     recordTaskCompletion,
     recordFlashcardCreation,
-    recordFlashcardSessionEnd 
+    recordFlashcardSessionEnd
 };
 
-// Carrega os dados na página de estatísticas quando ela é aberta
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('totalTimeValue')) {
         renderStats();

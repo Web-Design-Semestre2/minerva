@@ -1316,7 +1316,6 @@ body.dark-mode .toast-message {
 }
 
 /* ================= ESTATÍSTICAS ================= */
-
 .stats-dashboard {
     display: flex;
     flex-wrap: wrap;
@@ -1380,6 +1379,16 @@ body.dark-mode .toast-message {
 
 .stat-full-width {
     width: 100%;
+}
+
+#pomodoroCountCard h3,
+#tasksCompletedCard h3 {
+    padding-top: 25px;
+}
+
+#pomodoroCountCard .stat-value,
+#tasksCompletedCard .stat-value {
+    margin-top: 35px;
 }
 
 .flashcard-performance {
