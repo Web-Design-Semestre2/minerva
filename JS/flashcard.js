@@ -6,6 +6,8 @@ let currentIndex = 0;
 let showingFront = true;
 let correctCount = 0;
 let studyTotal = 0;
+let sessionCorrectCount = 0; 
+let sessionWrongCount = 0;
 
 let somAcerto = null;
 let somErro = null;
@@ -162,6 +164,10 @@ addBtn.addEventListener("click", () => {
   frontInput.value = "";
   backInput.value = "";
 
+  if (window.StudyStats) {
+      window.StudyStats.recordFlashcardCreation(); 
+  }
+
   window.mostrarNotificacao('Flashcard criado com sucesso! 📝', 'sucesso');
 
   if (inStudy) {
@@ -292,6 +298,7 @@ correctBtn.addEventListener("click", () => {
     setTimeout(() => {
       studyArea.classList.remove("flipped");
       
+      sessionCorrectCount++; 
       correctCount++;
       studyQueue.splice(currentIndex, 1);
 
@@ -309,6 +316,8 @@ correctBtn.addEventListener("click", () => {
     }, 1500);
   } else {
     withFlipDelay(() => {
+
+      sessionCorrectCount++; 
       correctCount++;
       studyQueue.splice(currentIndex, 1);
 
@@ -340,6 +349,8 @@ wrongBtn.addEventListener("click", () => {
     setTimeout(() => {
       studyArea.classList.remove("flipped");
       
+      sessionWrongCount++;
+
       const card = studyQueue.splice(currentIndex, 1)[0];
       studyQueue.push(card);
 
@@ -351,6 +362,9 @@ wrongBtn.addEventListener("click", () => {
     }, 1500);
   } else {
     withFlipDelay(() => {
+
+      sessionWrongCount++;
+
       const card = studyQueue.splice(currentIndex, 1)[0];
       studyQueue.push(card);
 
@@ -371,6 +385,14 @@ backToCreate.addEventListener("click", () => {
 });
 
 function endStudy(finished = true, message = null) {
+
+  if (finished && (sessionCorrectCount > 0 || sessionWrongCount > 0) && window.StudyStats) {
+      window.StudyStats.recordFlashcardSessionEnd(sessionCorrectCount, sessionWrongCount);
+  }
+
+  sessionCorrectCount = 0;
+  sessionWrongCount = 0;
+
   inStudy = false;
   studyQueue = [];
   currentIndex = 0;

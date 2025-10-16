@@ -127,6 +127,12 @@ function iniciarPomodoro() {
 
                 tocarNotificacao();
 
+                const duracaoSessaoConcluida = tempoEstudo;
+
+                if (emEstudo && window.StudyStats) {
+                    window.StudyStats.recordPomodoroSession(duracaoSessaoConcluida); 
+                }
+
                 emEstudo = !emEstudo;
                 tempoAtual = emEstudo ? tempoEstudo : tempoDescanso;
                 atualizarDisplay();

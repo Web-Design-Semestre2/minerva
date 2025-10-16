@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minerva - Estatísticas de Estudo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="JS/seo.js" defer></script>
+  <script src="JS/notifications.js" defer></script>
+  <script src="JS/darkmode.js" defer></script>
+  <script src="JS/statistics.js" defer></script> 
+  <script src="JS/main.js" defer></script>
+</head>
+<body>
+  
+  <header>
+    <div class="header-top">
+        <h1 class="site-title">Minerva</h1>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-container" id="navMenu">
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="ferramentas.html">Ferramentas</a></li>
+                <li><a href="flashcards.html">Flashcards</a></li>
+                <li><a href="estatisticas.html">Estatísticas</a></li> 
+                <li><a href="contato.html">Contatos</a></li>
+            </ul>
+            <button id="darkModeToggle">🌙</button>
+        </nav>
+    </div>
+  </header>
+  
+  <main>
+    <section> <h1>Suas Estatísticas de Estudo</h1>
+      
+      <div class="stats-dashboard">
+        <div class="stat-card highlight-card" id="totalTimeCard">
+          <h2>Tempo Total de Estudo (Pomodoro)</h2>
+          <p class="stat-value" id="totalTimeValue">0 minutos</p>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-card" id="pomodoroCountCard">
+            <h3>Sessões Pomodoro</h3>
+            <p class="stat-value" id="pomodoroCountValue">0</p>
+          </div>
+          <div class="stat-card" id="tasksCompletedCard">
+            <h3>Tarefas Concluídas</h3>
+            <p class="stat-value" id="tasksCompletedValue">0</p>
+          </div>
+          <div class="stat-card" id="flashcardsSessionsCard">
+            <h3>Sessões de Flashcards</h3>
+            <p class="stat-value" id="flashcardsSessionsValue">0</p>
+          </div>
+        </div>
+
+        <div class="stat-card stat-full-width">
+          <h2>Performance em Flashcards</h2>
+          <div class="flashcard-performance">
+            <div class="performance-metric">
+              <span class="metric-label">Acertos:</span>
+              <span class="metric-value success-text" id="correctAnswersValue">0</span>
+            </div>
+            <div class="performance-metric">
+              <span class="metric-label">Erros:</span>
+              <span class="metric-value error-text" id="wrongAnswersValue">0</span>
+            </div>
+            <div class="performance-metric">
+              <span class="metric-label">Taxa de Acerto:</span>
+              <span class="metric-value" id="hitRateValue">0%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card stat-full-width">
+            <h2>Histórico Recente</h2>
+            <ul id="recentActivityList" class="activity-list">
+                <li class="activity-item">Nenhuma atividade registrada hoje.</li>
+            </ul>
+        </div>
+      </div>
+      
+      <button id="resetStatsBtn" class="danger-button">Resetar todas as Estatísticas</button>
+    </section>
+  </main>
+  
+  <footer>
+    <p>© 2025 Minerva. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

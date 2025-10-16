@@ -31,6 +31,11 @@ function renderizarLista() {
       salvarTarefas();
 
       if (checkbox.checked) {
+
+        if (window.StudyStats) {
+            window.StudyStats.recordTaskCompletion();
+        }
+
         window.mostrarNotificacao('Tarefa concluída! 🎉', 'sucesso');
       } else {
         window.mostrarNotificacao('Tarefa desmarcada', 'info');
