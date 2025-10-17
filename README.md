@@ -31,10 +31,10 @@
 ```
 ### 📸 Screenshots
 
-![Página Inicial](imagens/screenshot-home.png)
-![Pomodoro](imagens/screenshot-ferramentas.png)
-![Flashcards](imagens/screenshot-flashcards.png)
-![Estatísticas](imagens/screenshot-estatisticas.png)
+![Página Inicial](imagens\screenshot-home.png)
+![Pomodoro](imagens\screenshot-ferramentas.png)
+![Flashcards](imagens\screenshot-flashcards.png)
+![Estatísticas](imagens\screenshot-estatisticas.png)
 ```
 
 ---
