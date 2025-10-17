@@ -28,8 +28,6 @@
 
 ### 📸 Screenshots
 
-### 📸 Screenshots
-
 ![Página Inicial](imagens/screenshot-home.png)
 ![Pomodoro](imagens/screenshot-ferramentas.png)
 ![Flashcards](imagens/screenshot-flashcards.png)
