@@ -12,12 +12,13 @@
   <script src="JS/statistics.js" defer></script>
   <script src="JS/flashcard.js" defer></script>
   <script src="JS/main.js" defer></script>
+  <script src="JS/accessibility.js" defer></script>
 </head>
 <body>
 <header>
   <div class="header-top">
     <h1 class="site-title">Minerva</h1>
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+    <button class="menu-toggle" id="menuToggle">
       <span></span><span></span><span></span>
     </button>
     <nav class="nav-container" id="navMenu">
@@ -32,7 +33,7 @@
       <button id="darkModeToggle">🌙</button>
     </nav>
   </div>
-</header>
+  </header>
 
 <main>
   <section class="flashcard-container">
@@ -52,15 +53,18 @@
     <div class="estudo-container">
       <h3>Teste seus conhecimentos</h3>
 
-      <div id="studyArea" class="study-card" title="Clique para iniciar o estudo">
+      <div id="studyArea" class="study-card" role="region" aria-label="Área de estudo de flashcards" tabindex="0"
+        title="Clique ou pressione Enter para iniciar o estudo">
         <div class="card-inner" id="cardInner">
-          <div class="card-face card-front" id="cardFront">👆 Clique aqui para iniciar o estudo</div>
-          <div class="card-face card-back" id="cardBack"></div>
+          <div class="card-face card-front" id="cardFront" role="status" aria-live="polite">
+            👆 Clique aqui para iniciar o estudo
+          </div>
+          <div class="card-face card-back" id="cardBack" role="status" aria-live="polite"></div>
         </div>
       </div>
 
-      <p id="cardSide">-</p>
-      <p id="progress">Progresso: 0/0 — Restantes: 0</p>
+      <p id="cardSide" aria-live="polite" role="status">-</p>
+      <p id="progress" aria-live="polite" role="status">Progresso: 0/0 — Restantes: 0</p>
 
       <div class="study-buttons" aria-hidden="false">
         <button id="flipCard" disabled>Virar</button>

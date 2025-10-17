@@ -438,6 +438,7 @@ function endStudy(finished = true, message = null) {
   updateProgress();
 }
 
+
 renderList();
 updateProgress();
 showCard();

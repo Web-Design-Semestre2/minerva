@@ -1486,6 +1486,7 @@ body.dark-mode .performance-metric {
     border: 1px solid var(--color-muted);
 }
 
+
 /* ================= RESPONSIVIDADE ================= */
 
 @media (max-width: 600px) {
@@ -1581,5 +1582,273 @@ body.dark-mode .performance-metric {
     .contato-container,
     .ferramentas-container {
         max-width: 1200px;
+    }
+}
+
+
+/* =============================================== */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+*:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.nav-container.active {
+    overflow-y: auto;
+}
+
+button:disabled,
+input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--color-muted);
+}
+
+/* ==========================================
+   ESTADOS DE VALIDAÇÃO
+   ========================================== */
+input:invalid:not(:focus),
+textarea:invalid:not(:focus) {
+    border-color: #e74c3c;
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+    border-color: #e74c3c;
+    border-width: 2px;
+}
+
+input:valid:not(:placeholder-shown),
+textarea:valid:not(:placeholder-shown) {
+    border-color: #2ecc71;
+}
+
+/* ==========================================
+   MELHORAR CONTRASTE DE TEXTOS
+   ========================================== */
+
+/* Garantir contraste mínimo */
+.post p,
+.blog-container p,
+.contato-container p {
+    color: var(--color-text);
+}
+
+/* Links com melhor contraste */
+a {
+    color: var(--color-link);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+}
+
+a:hover,
+a:focus {
+    text-decoration-thickness: 3px;
+}
+
+/* ==========================================
+   ANIMAÇÕES RESPEITANDO PREFERÊNCIAS
+   ========================================== */
+
+/* Desabilitar animações para quem prefere */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .card-inner {
+        transition: none !important;
+    }
+    
+    .toast {
+        transition: none !important;
+    }
+}
+
+/* ==========================================
+   ALTO CONTRASTE
+   ========================================== */
+
+/* Melhorar contraste em modo de alto contraste */
+@media (prefers-contrast: high) {
+    :root {
+        --color-text: #000000;
+        --color-bg: #FFFFFF;
+        --color-title: #000000;
+        --color-accent: #0000EE;
+        --color-border: #000000;
+    }
+    
+    body.dark-mode {
+        --color-text: #FFFFFF;
+        --color-bg: #000000;
+        --color-title: #FFFFFF;
+        --color-accent: #00FFFF;
+        --color-border: #FFFFFF;
+    }
+    
+    button,
+    input,
+    textarea {
+        border: 2px solid currentColor;
+    }
+}
+
+/* ==========================================
+   MELHORIAS NO MENU MOBILE
+   ========================================== */
+
+.menu-toggle:focus-visible {
+    outline: 3px solid var(--color-bg);
+    outline-offset: 3px;
+}
+
+.nav-container.active {
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+/* ==========================================
+   MELHORIAS NOS FLASHCARDS
+   ========================================== */
+
+.study-card:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+#cardFront:focus,
+#cardBack:focus {
+    outline: none;
+}
+
+/* ==========================================
+   MELHORIAS NAS NOTIFICAÇÕES
+   ========================================== */
+
+.toast {
+    z-index: 10000;
+}
+
+@media (prefers-contrast: high) {
+    .toast {
+        border: 2px solid currentColor;
+    }
+}
+
+/* ==========================================
+   SKIP LINK MELHORADO
+   ========================================== */
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-accent);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 10001;
+    font-weight: bold;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid white;
+    outline-offset: -3px;
+}
+
+/* ==========================================
+   INDICADORES DE REGIÃO ATIVA
+   ========================================== */
+
+[aria-current="page"] {
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+/* ==========================================
+   MELHORAR ÁREAS CLICÁVEIS
+   ========================================== */
+
+button,
+a,
+input[type="checkbox"],
+input[type="radio"] {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    min-height: 44px;
+    min-width: auto;
+}
+
+/* ==========================================
+   DARK MODE - MELHORAR CONTRASTE
+   ========================================== */
+
+body.dark-mode .post,
+body.dark-mode .stat-card {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
+
+@media print {
+    header,
+    footer,
+    .menu-toggle,
+    #darkModeToggle,
+    .back-button,
+    #topo {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+    
+    a[href]:after {
+        content: " (" attr(href) ")";
     }
 }

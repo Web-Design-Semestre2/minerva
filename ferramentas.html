@@ -12,6 +12,7 @@
   <script src="JS/pomodoro.js" defer></script>
   <script src="JS/checklist.js" defer></script>
   <script src="JS/main.js" defer></script>
+  <script src="JS/accessibility.js" defer></script>
 </head>
 <body>
   
@@ -19,7 +20,7 @@
     <div class="header-top">
         <h1 class="site-title">Minerva</h1>
         
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+        <button class="menu-toggle" id="menuToggle">
             <span></span>
             <span></span>
             <span></span>
@@ -46,11 +47,13 @@
         <div class="inputs-tempo">
           <div class="tempo-box">
             <label for="tempoEstudo">Tempo de estudo:</label>
-            <input type="text" id="tempoEstudo" value="25:00" pattern="\d{1,2}:\d{2}">
+            <input type="text" id="tempoEstudo" value="25:00" pattern="\d{1,2}:\d{2}" 
+              aria-label="Tempo de estudo em minutos e segundos">
           </div>
           <div class="tempo-box">
             <label for="tempoDescanso">Tempo de descanso:</label>
-            <input type="text" id="tempoDescanso" value="05:00" pattern="\d{1,2}:\d{2}">
+            <input type="text" id="tempoDescanso" value="05:00" pattern="\d{1,2}:\d{2}"
+              aria-label="Tempo de descanso em minutos e segundos">
           </div>
         </div>
 
@@ -94,10 +97,12 @@
       <h1>Checklist</h1>
       <div id="checklist">
         <div class="input-checklist">
-          <input type="text" id="novaTarefa" placeholder="Adicionar tarefa">
-          <button id="adicionar">Adicionar</button>
+          <label for="novaTarefa" class="sr-only">Nova tarefa</label>
+          <input type="text" id="novaTarefa" placeholder="Adicionar tarefa" 
+            aria-label="Digite o texto da nova tarefa">
+          <button id="adicionar" aria-label="Adicionar tarefa à lista">Adicionar</button>
         </div>
-        <ul id="lista"></ul>
+        <ul id="lista" role="list" aria-label="Lista de tarefas"></ul>
       </div>
     </section>
 
