@@ -168,7 +168,7 @@ function trocarMusica(musicaId) {
         audioAtual.volume = 0.3;
         
         audioAtual.play().then(() => {
-            window.mostrarNotificacao(`🎵 ${musicas[musicaId].nome}`, 'info');
+            window.mostrarNotificacao(`${musicas[musicaId].nome} ativada! `, 'info');
         }).catch(err => {
             console.log("Erro ao tocar música:", err);
             window.mostrarNotificacao('Não foi possível reproduzir o áudio', 'erro');

@@ -544,6 +544,7 @@ input[type="button"]:hover {
 #lista li span {
     font-size: clamp(0.95rem, 2vw, 1.05rem);
     flex: 1;
+    text-align: left;
 }
 
 .feito {
