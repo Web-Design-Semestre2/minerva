@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
 :root {
     --color-bg: #F6FAFD;
     --color-bg-alt: #ffffff;
-    --color-title: #194569;
-    --color-text: #222E3A;
+    --color-title: #195469;
+    --color-text: #555;
     --color-highlight: #2386A6;
-    --color-accent: #3AB7C8;
+    --color-accent: #a0d4e2;
     --color-accent-dark: #1B7688;
-    --color-button: #2386A6;
+    --color-button: #238ca6;
     --color-button-hover: #194569;
     --color-link: #2386A6;
     --color-border: #E5EDF5;
@@ -17,13 +19,13 @@
 body.dark-mode {
     --color-bg: #181E25;
     --color-bg-alt: #232B35;
-    --color-title: #84BFF9;
-    --color-text: #E4EBF5;
+    --color-title: #a0d4e2;
+    --color-text: #cacacc;
     --color-highlight: #50A7D4;
-    --color-accent: #3681B8;
-    --color-accent-dark: #7FC8F8;
-    --color-button: #3681B8;
-    --color-button-hover: #50A7D4;
+    --color-accent: #195469;
+    --color-accent-dark: #74c4cd;
+    --color-button: #23a6a4;
+    --color-button-hover: #194569;
     --color-link: #7FC8F8;
     --color-border: #232B35;
     --color-shadow: rgba(127, 200, 248, 0.10);
@@ -45,7 +47,7 @@ body {
     min-height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Josefin Sans', Arial, 'Segoe UI', sans-serif;
     line-height: 1.6;
     background-color: var(--color-bg);
     color: var(--color-text);
@@ -131,12 +133,14 @@ a:hover {
     opacity: 0.9;
 }
 
+
 /* ================= HEADER ================= */
 header {
     background-color: var(--color-title);
     color: var(--color-bg);
     padding: 10px 0;
     box-shadow: 0 2px 12px var(--color-shadow);
+    
 }
 
 .header-top {
@@ -872,9 +876,11 @@ body.dark-mode #flashcardList li span {
     box-shadow: 0 6px 18px var(--color-shadow);
 }
 
-.post h2 {
+.post h3 {
     margin-top: 0;
-    color: var(--color-title);
+    color: var(--color-highlight);
+    font-size: 1.42rem;
+    font-weight: 600;
 }
 
 .post p {
@@ -1167,6 +1173,7 @@ footer {
 footer p {
     font-size: clamp(0.88rem, 2vw, 1.03rem);
     padding: 0 10px;
+    color: var(--color-bg);
 }
 
 #topo {

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   postsContainer.innerHTML = blogPosts.map(post => `
     <div class="post">
-      <h2>${post.title}</h2>
+      <h3>${post.title}</h3>
       <p><em>${post.date || ""}</em></p>
       <p>${post.summary || ""}</p>
       <a href="post.html?slug=${encodeURIComponent(post.slug)}">Leia mais</a>
