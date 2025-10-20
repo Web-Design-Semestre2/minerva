@@ -1284,16 +1284,110 @@ body.dark-mode #flashcardList li span {
     border: 1px solid var(--color-border);
 }
 
+.contato-container {
+    text-align: center;
+    color: var(--color-title)
+    margin-bottom: 25px;
+}
+
+.contato-intro{
+    margin-bottom: 30px;
+    max-width: 100%;
+}
+
+.intro-text{
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--color-highlight);
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+
+.contato-opcoes{
+    background: var(--color-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.contato-opcoes h3{
+    margin-top: 0;
+    color: var(--color-title);
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+}
+.contato-opcoes > p {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+.contato-opcoes ul {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-left: 125px;
+    list-style-type: none;
+}
+
+.contato-opcoes ul li {
+    margin: 10px 0;
+    line-height: 1.6;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    padding-left: 0;
+    position: relative;
+}
+
+.contato-compromisso {
+    background: var(--color-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.contato-compromisso p {
+    color: #555;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.contato-sep {
+    height: 2px;
+    border: none;
+    background: var(--color-accent);
+    margin: 25px auto;
+    max-width: 80%;
+    border-radius: 2px;
+}
+
+.form-instrucao {
+    text-align: center;
+    font-weight: 600;
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    color: var(--color-title);
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
 .contato-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .contato-form label {
     font-weight: bold;
     color: var(--color-title);
     font-size: clamp(0.93rem, 2vw, 1.08rem);
+    margin-bottom: 5px;
+    display: block;
+    text-align: left;
 }
 
 .contato-form input,
@@ -1306,6 +1400,7 @@ body.dark-mode #flashcardList li span {
     box-sizing: border-box;
     background-color: var(--color-white);
     color: var(--color-text);
+    font-family: 'Josefin Sans', Arial, sans-serif;
 }
 
 .contato-form input:focus,
@@ -1315,10 +1410,18 @@ body.dark-mode #flashcardList li span {
     outline: none;
 }
 
+.contato-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
 .contato-form button {
     width: 100%;
-    max-width: 200px;
+    max-width: 250px;
     align-self: center;
+    margin-top: 10px;
+    padding: 12px 24px;
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
 }
 
 .faq-container {
@@ -1423,6 +1526,18 @@ body.dark-mode .faq-icon {
   color: var(--color-accent);
 }
 
+body.dark-mode .contato-form input,
+body.dark-mode .contato-form textarea {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border-color: var(--color-accent);
+}
+
+body.dark-mode .contato-opcoes {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+}
+
 @media (max-width: 768px) {
   .faq-question {
     font-size: 1rem;
@@ -1436,6 +1551,134 @@ body.dark-mode .faq-icon {
   .faq-answer p {
     font-size: 0.95rem;
   }
+  .contato-container {
+        padding: 20px 15px;
+        margin: 15px auto;
+    }
+
+    .contato-intro {
+        margin-bottom: 25px;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .contato-opcoes,
+    .contato-compromisso {
+        padding: 15px;
+        margin: 15px 0;
+    }
+
+    .contato-opcoes ul {
+        padding-left: 20px;
+    }
+
+    .contato-opcoes ul li {
+        font-size: 0.9rem;
+        margin: 8px 0;
+    }
+
+    .contato-form {
+        gap: 12px;
+        padding: 0;
+    }
+
+    .contato-form input,
+    .contato-form textarea {
+        padding: 10px;
+    }
+}
+@media (max-width: 600px) {
+    .contato-container {
+        padding: 15px 10px;
+        margin: 10px 5px;
+        border-radius: 10px;
+    }
+
+    .contato-container h1 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .intro-text {
+        font-size: 0.95rem;
+        padding: 0 5px;
+    }
+
+    .contato-opcoes,
+    .contato-compromisso {
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    .contato-opcoes h3 {
+        font-size: 1.1rem;
+    }
+
+    .contato-opcoes ul {
+        padding-left: 15px;
+    }
+
+    .contato-opcoes ul li {
+        font-size: 0.85rem;
+    }
+
+    .contato-compromisso p {
+        font-size: 0.9rem;
+    }
+
+    .contato-compromisso .destaque {
+        font-size: 0.95rem;
+    }
+
+    .form-instrucao {
+        font-size: 0.95rem;
+    }
+
+    .contato-form {
+        gap: 10px;
+    }
+
+    .contato-form label {
+        font-size: 0.9rem;
+    }
+
+    .contato-form input,
+    .contato-form textarea {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .contato-form textarea {
+        min-height: 100px;
+    }
+
+    .contato-form button {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .contato-container {
+        padding: 12px 8px;
+    }
+
+    .contato-opcoes ul,
+    .contato-compromisso p {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* Ajuste para evitar overflow */
+.contato-container * {
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* ================= FOOTER ================= */

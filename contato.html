@@ -38,22 +38,48 @@
 </header>
 
   <main>
-    <section class="contato-container">
-      <h1>Contato</h1>
-      <form class="contato-form">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" placeholder="Seu nome">
+      <section class="contato-container">
+        <h1>Contato</h1>
+        
+        <!-- ADICIONE ESTE BLOCO AQUI -->
+        <div class="contato-intro">
+          <p class="intro-text"><strong>A equipe Minerva está sempre pronta para te ouvir!</strong></p>
+          
+          <div class="contato-opcoes">
+            <h3>🤝 Como podemos ajudar?</h3>
+            <p><strong>Use este formulário para:</strong></p>
+            <ul>
+              <li>📧 Enviar sugestões de novas funcionalidades</li>
+              <li>💡 Compartilhar ideias para melhorar a plataforma</li>
+              <li>🔧 Reportar problemas técnicos ou bugs</li>
+              <li>📝 Sugerir temas para novos artigos do blog</li>
+              <li>⭐ Dar seu feedback sobre as ferramentas</li>
+              <li>🎯 Tirar dúvidas sobre como usar o Minerva</li>
+            </ul>
+          </div>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Seu email">
+          <hr class="contato-sep">
+          <p class="forma-instrucao">Preencha o formulário abaixo e entraremos em contato em breve</p>
+          
+          <form class="contato-form">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" placeholder="seu nome">
 
-        <label for="mensagem">Mensagem</label>
-        <textarea id="mensagem" rows="6" placeholder="Escreva sua mensagem"></textarea>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com">
 
-        <button type="submit">Enviar</button>
-      </form>
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" rows="6" placeholder="escreva sua mensagem"></textarea>
 
-    </section>
+          <button type="submit">Enviar formulário</button>
+          </form>
+
+
+          <hr class="contato-sep" style="margin-top: 35px;">
+          <div class="contato-compromisso">
+            <p>📬 <strong>Compromisso:</strong> Lemos cada mensagem com atenção e nos esforçamos para responder o mais rápido possível. Seu feedback nos ajuda a construir uma plataforma cada vez mais eficiente e alinhada às suas necessidades.</p>
+          </div>
+      </section>
 
     <section id="faq" class="section">
     
@@ -99,7 +125,7 @@
       <div class="faq-item">
         <input type="checkbox" id="faq4" class="faq-toggle">
         <label for="faq4" class="faq-question">
-          💬 A plataforma é gratuita?
+          💸 A plataforma é gratuita?
           <span class="faq-icon">+</span>
         </label>
         <div class="faq-answer">
@@ -110,7 +136,7 @@
       <div class="faq-item">
         <input type="checkbox" id="faq5" class="faq-toggle">
         <label for="faq5" class="faq-question">
-          📧 Posso sugerir temas para o blog?
+          📝 Posso sugerir temas para o blog?
           <span class="faq-icon">+</span>
         </label>
         <div class="faq-answer">
@@ -151,7 +177,7 @@
           return;
         }
 
-        window.mostrarNotificacao('Mensagem enviada com sucesso! ✓', 'sucesso');
+        window.mostrarNotificacao('Mensagem enviada com sucesso!', 'sucesso');
 
         form.reset();
 
