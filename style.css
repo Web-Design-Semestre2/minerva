@@ -407,6 +407,257 @@ input[type="button"]:hover {
     transform: scale(1.045);
 }
 
+/* ================= HOME PAGE LAYOUT ================= */
+
+.hero-banner {
+    background: linear-gradient(135deg, var(--color-title) 0%, var(--color-accent) 100%);
+    padding: 20px 10px;
+    margin: 0 auto 2px;
+    max-width: 92%;
+    text-align: center;
+    box-shadow: 0 4px 20px var(--color-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 Q300,40 600,20 T1200,0 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.1)"/></svg>') no-repeat bottom;
+    background-size: cover;
+    opacity: 0.13;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 46px;
+    font-weight: 450;
+    color: #ffffff;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Container Principal com Flexbox */
+.home-container {
+    display: flex;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 15px;
+    align-items: flex-start;
+}
+
+/* Painel Principal */
+.main-panel {
+    flex: 1;
+    min-width: 0;
+}
+
+.card-section {
+    background-color: var(--color-bg-alt);
+    padding: clamp(20px, 4vw, 35px);
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px var(--color-shadow);
+    border: 1px solid var(--color-border);
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 0 0 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px;
+}
+
+.sidebar-card {
+    background-color: var(--color-bg-alt);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px var(--color-shadow);
+    border: 1px solid var(--color-border);
+}
+
+.sidebar-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+    color: var(--color-title);
+    text-align: left;
+}
+
+.sidebar-card p {
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-list li {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.sidebar-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.sidebar-list a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: block;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.sidebar-list a:hover {
+    color: var(--color-accent);
+    transform: translateX(5px);
+    text-decoration: none;
+}
+
+.sidebar-cta {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-highlight) 100%);
+    color: white;
+    text-align: center;
+}
+
+.sidebar-cta h3 {
+    color: white;
+    text-align: center;
+}
+
+.sidebar-cta p {
+    color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: white;
+    color: var(--color-title);
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+/* Responsividade Home Layout */
+@media (max-width: 1024px) {
+    .home-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        flex: 1;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-banner {
+        padding: 40px 15px;
+    }
+
+    .sidebar {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .sidebar {
+        grid-template-columns: 1fr;
+    }
+}
+
+.info-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+.info-text {
+    flex: 1;
+    min-width: 400px;
+}
+
+.info-text p {
+    text-align: justify;
+    padding: 0;
+}
+
+.info-image {
+    flex: 0 0 auto;
+    max-width: 400px;
+}
+
+.info-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px var(--color-shadow);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .info-content {
+        flex-direction: column;
+    }
+
+    .info-text p{
+        text-align: center;
+    }
+    
+    .info-image {
+        max-width: 100%;
+    }
+}
+
 /* ================= POMODORO ================= */
 #pomodoro {
     display: flex;
@@ -488,7 +739,6 @@ input[type="button"]:hover {
     box-shadow: 0 0 8px var(--color-shadow);
 }
 
-/* Responsividade para mobile */
 @media (max-width: 500px) {
     .inputs-tempo {
         gap: 30px;
@@ -901,8 +1151,6 @@ body.dark-mode #flashcardList li span {
     color: var(--color-title);
 }
 
-/* ----------- BLOG POST PAGE STYLES ----------- */
-
 #blogPostContent h1,
 #blogPostContent h2,
 #blogPostContent h3 {
@@ -989,8 +1237,6 @@ body.dark-mode #flashcardList li span {
     box-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.25) inset;
     opacity: 0.9;
 }
-
-
 
 /* ================= CONTATO ================= */
 .contato-container {
@@ -1192,7 +1438,6 @@ footer p {
     color: var(--color-bg);
 }
 
-/* ================= HOME PAGE SPECIFIC ================= */
 #home,
 #about,
 #services {
@@ -1617,8 +1862,6 @@ body.dark-mode .toast-message {
     background: #c0392b;
 }
 
-/* ================= DARK MODE ADJUSTMENTS ================= */
-
 body.dark-mode .stat-card {
     background-color: var(--color-bg);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
@@ -1636,7 +1879,6 @@ body.dark-mode .performance-metric {
     border: 1px solid var(--color-muted);
 }
 
-
 /* ================= RESPONSIVIDADE ================= */
 
 @media (max-width: 600px) {
@@ -1649,29 +1891,7 @@ body.dark-mode .performance-metric {
     .performance-metric {
         min-width: 100%;
     }
-}
-
-@media (max-width: 400px) {
-    .header-top {
-        gap: 10px;
-    }
-
-    header .menu {
-        gap: 8px;
-    }
-
-    header .menu li a {
-        padding: 6px 10px;
-        font-size: 0.88rem;
-    }
-
-    main section {
-        padding: 15px;
-        width: calc(100% - 10px);
-    }
-}
-
-@media (max-width: 600px) {
+    
     header nav {
         flex-direction: column;
         gap: 10px;
@@ -1704,6 +1924,26 @@ body.dark-mode .performance-metric {
     }
 }
 
+@media (max-width: 400px) {
+    .header-top {
+        gap: 10px;
+    }
+
+    header .menu {
+        gap: 8px;
+    }
+
+    header .menu li a {
+        padding: 6px 10px;
+        font-size: 0.88rem;
+    }
+
+    main section {
+        padding: 15px;
+        width: calc(100% - 10px);
+    }
+}
+
 @media (min-width: 700px) {
     .blog-posts {
         grid-template-columns: repeat(2, 1fr);
@@ -1726,7 +1966,6 @@ body.dark-mode .performance-metric {
 }
 
 @media (min-width: 1400px) {
-
     main section,
     .blog-container,
     .contato-container,
@@ -1735,8 +1974,7 @@ body.dark-mode .performance-metric {
     }
 }
 
-
-/* =============================================== */
+/* ================= ACESSIBILIDADE ================= */
 
 .sr-only {
     position: absolute;
@@ -1774,9 +2012,6 @@ input:disabled {
     background-color: var(--color-muted);
 }
 
-/* ==========================================
-   ESTADOS DE VALIDAÇÃO
-   ========================================== */
 input:invalid:not(:focus),
 textarea:invalid:not(:focus) {
     border-color: #e74c3c;
@@ -1793,18 +2028,12 @@ textarea:valid:not(:placeholder-shown) {
     border-color: #2ecc71;
 }
 
-/* ==========================================
-   MELHORAR CONTRASTE DE TEXTOS
-   ========================================== */
-
-/* Garantir contraste mínimo */
 .post p,
 .blog-container p,
 .contato-container p {
     color: var(--color-text);
 }
 
-/* Links com melhor contraste */
 a {
     color: var(--color-link);
     text-decoration-thickness: 2px;
@@ -1816,11 +2045,6 @@ a:focus {
     text-decoration-thickness: 3px;
 }
 
-/* ==========================================
-   ANIMAÇÕES RESPEITANDO PREFERÊNCIAS
-   ========================================== */
-
-/* Desabilitar animações para quem prefere */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -1840,11 +2064,6 @@ a:focus {
     }
 }
 
-/* ==========================================
-   ALTO CONTRASTE
-   ========================================== */
-
-/* Melhorar contraste em modo de alto contraste */
 @media (prefers-contrast: high) {
     :root {
         --color-text: #000000;
@@ -1869,10 +2088,6 @@ a:focus {
     }
 }
 
-/* ==========================================
-   MELHORIAS NO MENU MOBILE
-   ========================================== */
-
 .menu-toggle:focus-visible {
     outline: 3px solid var(--color-bg);
     outline-offset: 3px;
@@ -1882,10 +2097,6 @@ a:focus {
     overflow-y: auto;
     max-height: 100vh;
 }
-
-/* ==========================================
-   MELHORIAS NOS FLASHCARDS
-   ========================================== */
 
 .study-card:focus-visible {
     outline: 3px solid var(--color-accent);
@@ -1897,10 +2108,6 @@ a:focus {
     outline: none;
 }
 
-/* ==========================================
-   MELHORIAS NAS NOTIFICAÇÕES
-   ========================================== */
-
 .toast {
     z-index: 10000;
 }
@@ -1910,10 +2117,6 @@ a:focus {
         border: 2px solid currentColor;
     }
 }
-
-/* ==========================================
-   SKIP LINK MELHORADO
-   ========================================== */
 
 .skip-link {
     position: absolute;
@@ -1934,19 +2137,11 @@ a:focus {
     outline-offset: -3px;
 }
 
-/* ==========================================
-   INDICADORES DE REGIÃO ATIVA
-   ========================================== */
-
 [aria-current="page"] {
     font-weight: bold;
     text-decoration: underline;
     text-decoration-thickness: 3px;
 }
-
-/* ==========================================
-   MELHORAR ÁREAS CLICÁVEIS
-   ========================================== */
 
 button,
 a,
@@ -1966,18 +2161,10 @@ textarea {
     min-width: auto;
 }
 
-/* ==========================================
-   DARK MODE - MELHORAR CONTRASTE
-   ========================================== */
-
 body.dark-mode .post,
 body.dark-mode .stat-card {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
-
-/* ==========================================
-   PRINT STYLES
-   ========================================== */
 
 @media print {
     header,
