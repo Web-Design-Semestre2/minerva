@@ -168,7 +168,7 @@ addBtn.addEventListener("click", () => {
       window.StudyStats.recordFlashcardCreation(); 
   }
 
-  window.mostrarNotificacao('Flashcard criado com sucesso! 📝', 'sucesso');
+  window.mostrarNotificacao('Flashcard criado com sucesso!', 'sucesso');
 
   if (inStudy) {
     studyQueue.push({ ...newCard });
@@ -187,7 +187,7 @@ function showCard() {
   const studyArea = document.getElementById("studyArea");
 
   if (!inStudy || studyQueue.length === 0) {
-    if (frontEl) frontEl.textContent = inStudy ? "Nenhum flashcard disponível!" : '👆 Clique aqui para iniciar o estudo';
+    if (frontEl) frontEl.textContent = inStudy ? "Nenhum flashcard disponível!" : 'Clique aqui para iniciar o estudo';
     if (backEl) backEl.textContent = "";
     cardSide.textContent = "-";
     if (studyArea) studyArea.classList.remove("flipped");
@@ -232,7 +232,7 @@ if (studyArea) {
       
       carregarSons();
 
-      window.mostrarNotificacao('Modo de estudo ativado! 📚', 'info');
+      window.mostrarNotificacao('Modo de estudo ativado!', 'info');
     }
   });
 
@@ -414,15 +414,15 @@ function endStudy(finished = true, message = null) {
     if (frontEl) frontEl.textContent = "🎉 Parabéns! Você acertou todos os flashcards!";
     if (backEl) backEl.textContent = "";
 
-    window.mostrarNotificacao('Parabéns! Estudo concluído! 🎉', 'sucesso');
+    window.mostrarNotificacao('Parabéns! Estudo concluído!', 'sucesso');
 
     setTimeout(() => {
-      if (frontEl) frontEl.textContent = "👆 Clique aqui para iniciar o estudo";
+      if (frontEl) frontEl.textContent = " Clique aqui para iniciar o estudo";
       correctCount = 0;
       updateProgress();
     }, 3000);
   } else {
-    if (frontEl) frontEl.textContent = "👆 Clique aqui para iniciar o estudo";
+    if (frontEl) frontEl.textContent = " Clique aqui para iniciar o estudo";
     if (backEl) backEl.textContent = "";
     
     if (message) {

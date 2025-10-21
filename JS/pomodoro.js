@@ -100,13 +100,13 @@ function tocarNotificacao() {
     }
 
     if (emEstudo) {
-        window.mostrarNotificacao('⏰ Hora do descanso! Relaxe um pouco', 'info');
+        window.mostrarNotificacao('Hora do descanso, relaxe um pouco!', 'info');
     } else {
-        window.mostrarNotificacao('📚 Hora de estudar! Vamos lá!', 'sucesso');
+        window.mostrarNotificacao('Hora de estudar, vamos lá!', 'sucesso');
     }
 
     if ("Notification" in window && Notification.permission === "granted") {
-        const mensagem = emEstudo ? "📚 Hora de estudar!" : "⏰ Hora do descanso!";
+        const mensagem = emEstudo ? "Hora de estudar!" : "Hora do descanso!";
         new Notification("Pomodoro - Minerva", {
             body: mensagem,
             icon: "https://via.placeholder.com/128/2386A6/ffffff?text=M"
@@ -137,10 +137,10 @@ function iniciarPomodoro() {
                 tempoAtual = emEstudo ? tempoEstudo : tempoDescanso;
                 atualizarDisplay();
                 
-                console.log("🔄 Próximo período:", emEstudo ? "Estudo" : "Descanso");
+                console.log(" Próximo período:", emEstudo ? "Estudo" : "Descanso");
 
                 setTimeout(() => {
-                    console.log("▶️ Reiniciando timer...");
+                    console.log("Reiniciando timer...");
                     iniciarPomodoro();
                 }, 2000);
             }
@@ -211,8 +211,8 @@ document.getElementById("iniciar").onclick = () => {
                 return;
             }
         }
-        console.log("▶️ Timer iniciado!");
-        window.mostrarNotificacao('⏱️ Pomodoro iniciado!', 'sucesso');
+        console.log("Timer iniciado!");
+        window.mostrarNotificacao('Pomodoro iniciado!', 'sucesso');
         iniciarPomodoro();
     }
 };
@@ -221,8 +221,8 @@ document.getElementById("pausar").onclick = () => {
     if (intervalo) {
         clearInterval(intervalo);
         intervalo = null;
-        console.log("⏸️ Timer pausado!");
-        window.mostrarNotificacao('⏸️ Timer pausado', 'info');
+        console.log("Timer pausado!");
+        window.mostrarNotificacao('Timer pausado', 'info');
     }
 };
 
@@ -238,8 +238,8 @@ document.getElementById("resetar").onclick = () => {
     tempoDescanso = novoDescanso > 0 ? novoDescanso : 5 * 60;
     tempoAtual = tempoEstudo;
     atualizarDisplay();
-    console.log("🔄 Timer resetado!");
-    window.mostrarNotificacao('🔄 Timer resetado', 'info');
+    console.log("Timer resetado!");
+    window.mostrarNotificacao('Timer resetado', 'info');
 };
 
 document.querySelectorAll('.music-btn').forEach(btn => {
@@ -257,4 +257,4 @@ if (volumeSlider) {
 }
 
 atualizarDisplay();
-console.log("✅ Pomodoro carregado com sucesso!");
+console.log("Pomodoro carregado com sucesso!");

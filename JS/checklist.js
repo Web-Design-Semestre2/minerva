@@ -36,7 +36,7 @@ function renderizarLista() {
             window.StudyStats.recordTaskCompletion();
         }
 
-        window.mostrarNotificacao('Tarefa concluída! 🎉', 'sucesso');
+        window.mostrarNotificacao('Tarefa concluída!', 'sucesso');
       } else {
         window.mostrarNotificacao('Tarefa desmarcada', 'info');
       }
@@ -83,7 +83,7 @@ function adicionarTarefa() {
     input.value = "";
     input.focus();
 
-    window.mostrarNotificacao('Tarefa adicionada com sucesso! ✓', 'sucesso');
+    window.mostrarNotificacao('Tarefa adicionada com sucesso!', 'sucesso');
   }
 }
 

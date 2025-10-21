@@ -794,14 +794,16 @@ input[type="button"]:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 10px;
     margin-bottom: 15px;
     width: 100%;
 }
 
 .input-checklist input {
-    flex: 1 1 200px;
-    max-width: 400px;
+    flex: 1 1 autox;
+    max-width: 220px;
+    min-width: 180px;
     padding: 10px 12px;
     border-radius: 8px;
     border: 1px solid var(--color-accent);
@@ -817,6 +819,7 @@ input[type="button"]:hover {
 
 .input-checklist button {
     flex: 0 0 auto;
+    min-width: 110px;
 }
 
 #lista {
@@ -864,6 +867,39 @@ input[type="button"]:hover {
     text-decoration: line-through;
     color: var(--color-muted);
 }
+
+@media (max-width: 768px) {
+    .input-checklist input {
+        max-width: 250px;
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .input-checklist {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .input-checklist input {
+        max-width: 100%;
+        min-width: auto;
+        width: 100%;
+    }
+
+    .input-checklist button {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .input-checklist input {
+        font-size: 0.95rem;
+        padding: 9px 10px;
+    }
+}
+
 
 /* ================= FERRAMENTAS ================= */
 .ferramentas-container {
@@ -1329,7 +1365,6 @@ body.dark-mode #flashcardList li span {
     max-width: 600px;
     margin: 0 auto;
     padding-left: 125px;
-    list-style-type: none;
 }
 
 .contato-opcoes ul li {
