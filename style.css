@@ -138,9 +138,8 @@ a:hover {
 header {
     background-color: var(--color-title);
     color: var(--color-bg);
-    padding: 10px 0;
+    padding: 15px 0; 
     box-shadow: 0 2px 12px var(--color-shadow);
-    
 }
 
 .header-top {
@@ -148,23 +147,63 @@ header {
     margin: 0 auto;
     padding: 0 15px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    flex-direction: row; 
+    justify-content: center !important; 
+    align-items: center !important; 
+    gap: 30px; 
 }
 
-.site-title {
-    font-size: clamp(1.6rem, 5vw, 2.3rem);
-    font-weight: bold;
-    margin: 0;
-    color: var(--color-accent);
-    letter-spacing: 1.5px;
+.logo-link {
+    order: unset; 
+    margin-left: 0 !important; 
+    display: flex; 
+    align-items: center; 
+    text-decoration: none;
+    transition: opacity 0.3s ease;
 }
+
+.logo-link:hover {
+    opacity: 0.85;
+}
+
+.site-logo {
+    max-height: 60px !important; 
+    width: auto;
+    height: auto;
+    max-width: 192px !important; 
+    object-fit: contain;
+    transition: transform 0.3s ease;  
+    display: block !important; 
+    transform: translateY(-2px) !important; 
+}
+
+.site-logo:hover {
+    transform: scale(1.10) translateY(-2px) !important; 
+}
+
+.logo-light-mode {
+    display: block !important;
+}
+
+.logo-dark-mode {
+    display: none !important;
+}
+
+body.dark-mode .logo-light-mode {
+    display: none !important;
+}
+
+body.dark-mode .logo-dark-mode {
+    display: block !important;
+}
+
 
 header nav {
-    width: 100%;
+    margin-left: 0 !important; 
+    order: unset; 
+    width: auto; 
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; 
     align-items: center;
     gap: 15px;
     flex-wrap: wrap;
@@ -173,7 +212,7 @@ header nav {
 header .menu {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; 
     flex-wrap: wrap;
     gap: 15px;
     padding: 0;
@@ -184,7 +223,7 @@ header .menu li a {
     color: var(--color-bg);
     text-decoration: none;
     font-weight: bold;
-    font-size: clamp(0.98rem, 2vw, 1.08rem);
+    font-size: clamp(1.1rem, 2vw, 1.2rem); 
     padding: 8px 16px;
     display: block;
     border-radius: 6px;
@@ -194,6 +233,41 @@ header .menu li a {
 header .menu li a:hover {
     background-color: var(--color-accent-dark);
     color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: row; 
+        justify-content: space-between !important; 
+        align-items: center !important;
+        gap: 0; 
+    }
+
+    .logo-link {
+        margin-left: 0 !important; 
+        order: unset;
+    }
+    
+    header nav {
+        margin-left: unset !important; 
+        margin: 0;
+        width: auto; 
+        justify-content: flex-end; 
+        order: unset;
+    }
+
+    .site-logo {
+        max-height: 60px !important;
+        max-width: 192px !important;
+        transform: translateY(0) !important; 
+    }
+}
+
+@media (max-width: 400px) {
+    .site-logo {
+        max-height: 50px !important; 
+        max-width: 160px !important; 
+    }
 }
 
 /* ================= DARK MODE TOGGLE ================= */
@@ -947,7 +1021,7 @@ input[type="button"]:hover {
 
 .ferramenta h2 {
     margin-top: 0;
-    color: var(--color-highlight)
+    color: var(--color-highlight);
     text-align: center;
 }
 
@@ -1477,7 +1551,7 @@ body.dark-mode .flashcard-container .back-button:hover:not(:disabled) {
 
 .contato-container {
     text-align: center;
-    color: var(--color-title)
+    color: var(--color-title);
     margin-bottom: 25px;
 }
 
