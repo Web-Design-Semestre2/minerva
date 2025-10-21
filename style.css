@@ -5,7 +5,7 @@
     --color-bg-alt: #ffffff;
     --color-title: #195469;
     --color-text: #555;
-    --color-highlight: #2386A6;
+    --color-highlight: #24a0a9;
     --color-accent: #a0d4e2;
     --color-accent-dark: #1B7688;
     --color-button: #238ca6;
@@ -17,11 +17,11 @@
 }
 
 body.dark-mode {
-    --color-bg: #181E25;
+    --color-bg: #1f262e;
     --color-bg-alt: #232B35;
     --color-title: #a0d4e2;
     --color-text: #cacacc;
-    --color-highlight: #50A7D4;
+    --color-highlight: #50d4cb;
     --color-accent: #195469;
     --color-accent-dark: #74c4cd;
     --color-button: #23a6a4;
@@ -532,7 +532,7 @@ input[type="button"]:hover {
     margin-top: 0;
     margin-bottom: 15px;
     font-size: clamp(1.1rem, 3vw, 1.25rem);
-    color: var(--color-title);
+    color: #94d4d2;
     text-align: left;
 }
 
@@ -553,7 +553,7 @@ input[type="button"]:hover {
 .sidebar-list li {
     margin-bottom: 12px;
     padding-bottom: 12px;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid #a8acaf;
 }
 
 .sidebar-list li:last-child {
@@ -584,7 +584,7 @@ input[type="button"]:hover {
 }
 
 .sidebar-cta h3 {
-    color: white;
+    color: rgba(255, 255, 255, 0.95);
     text-align: center;
 }
 
@@ -598,7 +598,7 @@ input[type="button"]:hover {
     display: inline-block;
     padding: 12px 24px;
     background-color: white;
-    color: var(--color-title);
+    color: #68a2b2;
     border-radius: 8px;
     font-weight: 600;
     font-size: clamp(0.95rem, 2.5vw, 1rem);
@@ -733,6 +733,22 @@ input[type="button"]:hover {
     border-radius: 8px;
 }
 
+.botoes-pomodoro button {
+    background-color: #23a6a4;
+    color: var(--color-bg-alt);
+    transition: all 0.3s ease;
+}
+
+.botoes-pomodoro button:hover {
+    background-color: #86e7e5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--color-shadow);
+}
+
+.botoes-pomodoro button:active {
+    transform: translateY(0);
+}
+
 .inputs-tempo {
     display: flex;
     flex-wrap: wrap;
@@ -820,6 +836,15 @@ input[type="button"]:hover {
 .input-checklist button {
     flex: 0 0 auto;
     min-width: 110px;
+    background-color: var(--color-button);
+    color: var(--color-bg-alt);
+    transition: all 0.3s ease;
+}
+
+.input-checklist button:hover {
+    background-color: #86e7e5;
+    transform: scale(1.045);
+    box-shadow: 0 4px 12px var(--color-shadow);
 }
 
 #lista {
@@ -922,7 +947,7 @@ input[type="button"]:hover {
 
 .ferramenta h2 {
     margin-top: 0;
-    color: var(--color-title);
+    color: var(--color-highlight)
     text-align: center;
 }
 
@@ -958,7 +983,7 @@ input[type="button"]:hover {
 
 .flashcard-form input {
     padding: 10px;
-    border: 1px solid var(--color-accent);
+    border: 1px solid var(--color-accent-dark);
     border-radius: 8px;
     font-size: 1rem;
     min-width: 200px;
@@ -1138,7 +1163,7 @@ body.dark-mode #flashcardList li span {
 }
 
 .study-buttons button:hover {
-    background-color: var(--color-title);
+    background-color: var(--color-accent-dark);
     transform: scale(1.05);
 }
 
@@ -1210,7 +1235,7 @@ body.dark-mode #flashcardList li span {
 }
 
 .post a {
-    color: var(--color-accent);
+    color: var(--color-highlight);
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s;
@@ -1266,14 +1291,14 @@ body.dark-mode #flashcardList li span {
 }
 
 #blogPostContent em {
-    color: var(--color-accent);
+    color:  #95aab2;
 }
 
 .back-link {
     display: inline-block;
     margin: 24px 0 0 0;
     padding: 10px 20px;
-    background: var(--color-accent);
+    background: var(--color-button);
     color: var(--color-bg-alt) !important;
     border: none;
     border-radius: 8px;
@@ -1285,7 +1310,7 @@ body.dark-mode #flashcardList li span {
 }
 
 .back-link:hover {
-    background: var(--color-title);
+    background: #4d9eb2;
     color: var(--color-bg);
     transform: translateY(-2px) scale(1.04);
     text-decoration: none;
@@ -1737,7 +1762,7 @@ footer p {
 #topo {
     padding: 10px 20px;
     margin-bottom: 10px;
-    background-color: var(--color-accent);
+    background-color: var(--color-button);
     color: var(--color-bg-alt);
     border: none;
     border-radius: 8px;
@@ -1746,7 +1771,7 @@ footer p {
 }
 
 #topo:hover {
-    background-color: var(--color-title);
+    background-color: var(--color-accent-dark);
     color: var(--color-bg);
 }
 
@@ -1792,7 +1817,7 @@ footer p {
 
 .music-btn {
     padding: 12px 20px;
-    background-color: var(--color-bg-alt);
+    background-color: var(--color-bg);
     color: var(--color-text);
     border: 2px solid var(--color-accent);
     border-radius: 8px;
@@ -1805,21 +1830,21 @@ footer p {
 }
 
 .music-btn:hover {
-    background-color: var(--color-accent);
+    background-color: #23a6a4;
     color: var(--color-bg-alt);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px var(--color-shadow);
 }
 
 .music-btn.active {
-    background-color: var(--color-button);
+    background-color: #23a6a4;
     color: var(--color-bg-alt);
     border-color: var(--color-button);
     box-shadow: 0 4px 12px rgba(35, 134, 166, 0.3);
 }
 
 .music-btn.active:hover {
-    background-color: var(--color-button-hover);
+    background-color: #86e7e5;
     border-color: var(--color-button-hover);
 }
 
